@@ -2,7 +2,7 @@ import React from 'react';
 
 const JobPost = () => {
     return (
-        <div className="bg-white p-8 rounded m-4 w-2/3 shadow-sm">
+        <div className="bg-white p-8 rounded m-4 md:w-2/3 shadow-sm">
             <div>
                 <div className="flex flex-row">
                     <h2 className="text-indigo-400 text-2xl font-semibold">House keeper</h2>
