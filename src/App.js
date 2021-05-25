@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Search from './pages/Search'
+import SearchJobs from './pages/SearchJobs'
 
 
 import Navbar from './components/Navbar'
@@ -12,9 +12,9 @@ const App = () => {
       <Navbar />
       <BrowserRouter>
         <Route exact path="/" component={Home} />
-                <Route exact path="/search" component={Search} />
+        <Route exact path="/search" component={SearchJobs} />
 
-      
+
       </BrowserRouter>
     </div>
   );
