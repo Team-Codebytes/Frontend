@@ -1,9 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
+import Home from './pages/Home'
+
 import Navbar from './components/Navbar'
+
 const App = () => {
   return (
-    <div className="text-center mx-auto mt-40 mb-8 w-7/12">
-      <Navbar/>
+    <div className="">
+      <Navbar />
+      <BrowserRouter>
+        <Route exact path="/" component={Home} />
+      
+      </BrowserRouter>
     </div>
   );
 }
