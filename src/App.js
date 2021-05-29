@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import SearchJobs from './pages/SearchJobs'
 import SearchPeople from './pages/SearchPeople'
 import JobInfoForm from './pages/JobInfoForm'
+import ChooseUser from './pages/ChooseUser'
+
 
 
 
@@ -21,6 +23,8 @@ const App = () => {
         <Route exact path="/search-jobs" component={SearchJobs} />
         <Route exact path="/search-people" component={SearchPeople} />
         <Route exact path="/job-info-form" component={JobInfoForm} />
+         <Route exact path="/choose-user-type" component={ChooseUser} />
+
 
 
 
