@@ -21,8 +21,10 @@ const Home = () => {
                 <div className="flex flex-row justify-center md:py-2 py-10 md:px-20">
                     <div>
                         <img src={commentIcon} alt="illustration" className="w-20 h-auto bg-white rounded-full p-4 shadow mx-auto" />
-                        <button className="bg-purple-400 text-xl m-4 font-bold shadow rounded-md px-8 py-4 text-white">Post a job</button>
+                        <Link to="/job-info-form">
 
+                            <button className="bg-purple-400 text-xl m-4 font-bold shadow rounded-md px-8 py-4 text-white">Post a job</button>
+                        </Link>
                     </div>
 
                     <div>
@@ -38,7 +40,7 @@ const Home = () => {
 
             <div className="flex flex-row mt-20">
                 <img src={peopleImg1} alt="illustration" className="w-1/2 opacity-70	" />
-                <img src={peopleImg2}  alt="illustration" className="w-1/2 opacity-70	" />
+                <img src={peopleImg2} alt="illustration" className="w-1/2 opacity-70	" />
             </div>
 
 
