@@ -29,9 +29,9 @@ const App = () => {
         <Route exact path="/search-people" component={SearchPeople} />
         <Route exact path="/job-info-form" component={JobInfoForm} />
         <Route exact path="/choose-user-type" component={ChooseUser} />
-                 <Route exact path="/user-register" component={UserRegister} />
-         <Route exact path="/enterprise-register" component={EnterpriseRegister} />
-         <Route exact path="/worker-register" component={WorkerRegister} />
+        <Route exact path="/user-register" component={UserRegister} />
+        <Route exact path="/enterprise-register" component={EnterpriseRegister} />
+        <Route exact path="/worker-register" component={WorkerRegister} />
 
 
 
