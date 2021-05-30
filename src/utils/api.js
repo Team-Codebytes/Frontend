@@ -1,11 +1,40 @@
 import axios from 'axios'
+import $ from 'jquery'
+
+
+function createUser(data) {
 
 
 
-function createUser(user) {
-    axios.post('https://unorganisedsectorbackbnd.herokuapp.com/API', user)
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
-}
 
-export {createUser}
+
+    
+   
+
+let url ='https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/create'
+  
+    
+  $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/create', {
+		FirstName: 'alpha',
+		LastName: 'alpha',
+		Email_id:'alpha',
+		Password: 'alpha',
+		Address: 'alpha',
+		State:'alpha', 
+		City: 'alpha',
+		Pincode: 'alpha',
+		Phone_no: 'alpha',
+	})
+	.then(user=>console.log(user)
+	)
+	.catch(function(err){
+		console.log(err);
+	})
+}  
+    
+    
+    
+  
+
+
+export { createUser }
