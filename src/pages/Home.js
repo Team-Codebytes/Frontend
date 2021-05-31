@@ -13,9 +13,9 @@ const Home = () => {
 
             <div className="pt-28 flex md:flex-row flex-col justify-center">
                 <div className="pt-4">
-                    <h1 className=" text-center text-3xl md:text-4xl font-bold">Find people for your work.</h1>
-                    <h1 className="   text-center text-3xl md:text-4xl font-bold">find work for you.</h1>
-                    <h1 className=" py-4 text-center font-semibold italic ">A centralized platform for the unorganized sector</h1>
+                    <h1 className=" text-center text-3xl md:text-5xl py-2 text-gray-700 font-bold">Find people for your work.</h1>
+                    <h1 className="   text-center text-3xl md:text-5xl py-2 text-gray-700 font-bold">find work for you.</h1>
+                    <h1 className=" py-4 text-center text-xl font-semibold italic ">A centralized platform for the unorganized sector</h1>
                 </div>
 
                 <div className="flex flex-row justify-center md:py-2 py-10 md:px-20">

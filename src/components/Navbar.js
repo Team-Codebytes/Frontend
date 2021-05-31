@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <div className="bg-white  p-4 shadow-lg flex">
             <Link to="/">
-                <h1 className="text-2xl font-bold text-green-300 md:mx-20">Unorganized</h1>
+                <h1 className="text-2xl font-bold text-gray-600 md:mx-20">Unorganized</h1>
             </Link>
             <div className="md:mr-20 ml-auto">
                 <Link to="/choose-user-type">
