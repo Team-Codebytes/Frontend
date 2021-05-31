@@ -22,6 +22,19 @@ function createEnterpriseUser(user) {
 	.catch(function(err){
 		console.log(err);
 	})
+}
+
+
+//register for worker user
+function createWorkerUser(user) {
+    
+  $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
+	  .then(user => console.log(user)
+	
+	)
+	.catch(function(err){
+		console.log(err);
+	})
 }  
     
     
@@ -31,4 +44,4 @@ function createEnterpriseUser(user) {
   
 
 
-export { createUser, createEnterpriseUser }
+export { createUser, createEnterpriseUser, createWorkerUser }
