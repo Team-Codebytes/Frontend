@@ -1,16 +1,19 @@
 import $ from 'jquery'
+import {useHistory} from 'react-router-dom'
 
 
 //register for common user
 function createUser(user) {
-
+	// const history = useHistory();
     
   $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/create', user)
-	  .then(user => console.log(user)
-		 
-	 
-   
-	
+	  .then(user => {
+		  console.log(user)
+		  localStorage.setItem('user', JSON.stringify(user))
+		//   history.push('/')
+
+		  
+	  }
 	)
 	.catch(function(err){
 		console.log(err);

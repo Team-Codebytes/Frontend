@@ -11,6 +11,8 @@ import UserRegister from './pages/UserRegister'
 import EnterpriseRegister from './pages/EnterpriseRegister'
 import WorkerRegister from './pages/WorkerRegister'
 import FindPeople from './pages/FindPeople'
+import Explore from './pages/Explore'
+
 
 
 
@@ -35,6 +37,9 @@ const App = () => {
         <Route exact path="/enterprise-register" component={EnterpriseRegister} />
         <Route exact path="/worker-register" component={WorkerRegister} />
         <Route exact path="/find-people" component={FindPeople} />
+
+                <Route exact path="/explore" component={Explore} />
+
 
 
 

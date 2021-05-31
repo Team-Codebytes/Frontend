@@ -9,7 +9,7 @@ import orgLogo from '../assets/org-logo.png'
 const ChooseUser = () => {
     return (
         <div className="bg-gray-50 py-36 text-center">
-            <h1 className="text-4xl font-bold mb-12">Register as</h1>
+            <h1 className="text-4xl font-bold mb-12">Continue as</h1>
             <div className="flex md:flex-row flex-col justify-center">
 
                 <div className="flex flex-col justify-center items-center mx-10">

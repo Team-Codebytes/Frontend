@@ -18,7 +18,7 @@ const Home = () => {
                     <h1 className=" py-4 text-center text-xl font-semibold italic ">A centralized platform for the unorganized sector</h1>
                 </div>
 
-                <div className="flex flex-row justify-center md:py-2 py-10 md:px-20">
+                {/* <div className="flex flex-row justify-center md:py-2 py-10 md:px-20">
                     <div>
                         <img src={commentIcon} alt="illustration" className="w-20 h-auto bg-white rounded-full p-4 shadow mx-auto" />
                         <Link to="/job-info-form">
@@ -34,7 +34,7 @@ const Home = () => {
                         </Link>
                     </div>
 
-                </div>
+                </div> */}
 
             </div>
 

@@ -1,10 +1,34 @@
-import React  from 'react';
-import { createUser } from '../utils/api'
+import React from 'react';
+// import { createUser } from '../utils/api'
 import { useForm } from "react-hook-form";
+import $ from 'jquery'
+import { useHistory } from 'react-router-dom'
 
 const UserRegister = () => {
 
-    const { register,  handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm();
+    const history = useHistory();
+
+
+
+
+
+    async function createUser(user) {
+
+        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/create', user)
+        //   .then(user => {
+        // 	  console.log(user)
+        localStorage.setItem('user', JSON.stringify(result))
+        history.push('/find-people')
+
+
+        //   }
+        // )
+        // .catch(function(err){
+        // 	console.log(err);
+        // })
+
+    }
 
     const onSubmit = (data) => {
         // e.preventDefault();
