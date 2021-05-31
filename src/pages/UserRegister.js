@@ -2,14 +2,9 @@ import React  from 'react';
 import { createUser } from '../utils/api'
 import { useForm } from "react-hook-form";
 
-
-
-
 const UserRegister = () => {
 
-
     const { register,  handleSubmit } = useForm();
-
 
     const onSubmit = (data) => {
         // e.preventDefault();
@@ -31,7 +26,6 @@ const UserRegister = () => {
         }
 
         createUser(newUser)
-
 
     }
 
@@ -143,30 +137,9 @@ const UserRegister = () => {
 
                         </div>
 
-
-
-
-
-
-
-
-
                     </div>
-
-
-
-
-
                 </form>
-
-
-
             </div>
-
-
-
-
-
 
         </div>
     );
