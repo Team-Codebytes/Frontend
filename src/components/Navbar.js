@@ -11,6 +11,10 @@ const Navbar = () => {
                 <Link to="/choose-user-type">
                     <span className="text-xl font-semibold">Register</span>
                 </Link>
+
+                <Link to="/find-people">
+                    <span className="text-xl font-semibold mx-4">Explore</span>
+                </Link>
             </div>
             <img src={userIcon} alt="user" className=" w-8" />
         </div>

@@ -2,7 +2,15 @@ import React  from 'react';
 import { createWorkerUser } from '../utils/api'
 import { useForm } from "react-hook-form";
 
+// import { Redirect } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
+
+
 const WorkerRegister = () => {
+
+      let history = useHistory();
+
 
     const { register,  handleSubmit } = useForm();
 
@@ -16,6 +24,8 @@ const WorkerRegister = () => {
             LastName: data.lastName,
             Email_id: data.email,
             Password: data.password,
+            Work_Category: data.jobTitle,
+            Experience:data.experience,
             Address: data.address,
             State: data.state,
             City: data.city,
@@ -31,6 +41,10 @@ const WorkerRegister = () => {
         }
 
         createWorkerUser(newUser)
+        history.push('/home')
+
+
+
 
     }
 
@@ -89,6 +103,25 @@ const WorkerRegister = () => {
                                 {...register("phoneNo")}
                             />
 
+                              <input
+                                type="text"
+                                placeholder="Job Title"
+                                className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                name="jobTitle"
+                                {...register("jobTitle")}
+                            />
+
+                              <input
+                                type="number"
+                                placeholder="Experience in years"
+                                className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                name="experience"
+                                {...register("experience")}
+                            />
+                        </div>
+
+
+                        <div className="md:w-1/2 m-6">
                             <input
                                 type="text"
                                 placeholder="Aadhar Number"
@@ -96,10 +129,6 @@ const WorkerRegister = () => {
                                 name="aadharNo"
                                 {...register("aadharNo")}
                             />
-                        </div>
-
-
-                        <div className="md:w-1/2 m-6">
 
                             <textarea
                                 type="text"
