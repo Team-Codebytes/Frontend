@@ -67,6 +67,7 @@ const UserRegister = () => {
 
                                 <div className="flex">
                                     <input
+                                        required
                                         type="text"
                                         placeholder="First name"
                                         className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -76,6 +77,7 @@ const UserRegister = () => {
                                     />
 
                                     <input
+                                        required
                                         type="text"
                                         placeholder="Last name"
                                         className="ml-2 my-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -84,6 +86,7 @@ const UserRegister = () => {
                                     />
                                 </div>
                                 <input
+                                    required
                                     type="email"
                                     placeholder="Email"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -92,6 +95,7 @@ const UserRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="password"
                                     placeholder="Password"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -99,6 +103,7 @@ const UserRegister = () => {
                                     {...register("password")}
                                 />
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Phone number"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -107,6 +112,7 @@ const UserRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Aadhar Number"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -119,6 +125,7 @@ const UserRegister = () => {
                             <div className="md:w-1/2 m-6">
 
                                 <textarea
+                                    required
                                     type="text"
                                     placeholder="Address"
                                     className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -127,6 +134,7 @@ const UserRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="City"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -135,6 +143,7 @@ const UserRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Pincode"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -143,6 +152,7 @@ const UserRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="State"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"

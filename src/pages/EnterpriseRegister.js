@@ -64,6 +64,7 @@ const EnterpriseRegister = () => {
                             <div className="md:w-1/2 m-6">
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Company / Organization"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -73,6 +74,7 @@ const EnterpriseRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="email"
                                     placeholder="Email"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -81,6 +83,7 @@ const EnterpriseRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="password"
                                     placeholder="Password"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -88,6 +91,7 @@ const EnterpriseRegister = () => {
                                     {...register("password")}
                                 />
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Contact number"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -102,6 +106,7 @@ const EnterpriseRegister = () => {
                             <div className="md:w-1/2 m-6">
 
                                 <textarea
+                                    required
                                     type="text"
                                     placeholder="Address"
                                     className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -110,6 +115,7 @@ const EnterpriseRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="City"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -118,6 +124,7 @@ const EnterpriseRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Pincode"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -126,6 +133,7 @@ const EnterpriseRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="State"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"

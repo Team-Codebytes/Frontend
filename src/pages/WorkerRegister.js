@@ -66,15 +66,17 @@ const WorkerRegister = () => {
                             <div className="md:w-1/2 m-6">
                                 <div className="flex">
                                     <input
+                                        required
                                         type="text"
                                         placeholder="First name"
                                         className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
                                         name="firstName"
                                         {...register("firstName")}
-
                                     />
 
+
                                     <input
+                                        required
                                         type="text"
                                         placeholder="Last name"
                                         className="ml-2 my-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -83,6 +85,7 @@ const WorkerRegister = () => {
                                     />
                                 </div>
                                 <input
+                                    required
                                     type="email"
                                     placeholder="Email"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -91,6 +94,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="password"
                                     placeholder="Password"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -98,6 +102,7 @@ const WorkerRegister = () => {
                                     {...register("password")}
                                 />
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Phone number"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -106,6 +111,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Job Title"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -114,6 +120,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="number"
                                     placeholder="Experience in years"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -125,6 +132,7 @@ const WorkerRegister = () => {
 
                             <div className="md:w-1/2 m-6">
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Aadhar Number"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -133,6 +141,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <textarea
+                                    required
                                     type="text"
                                     placeholder="Address"
                                     className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -141,6 +150,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="City"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -149,6 +159,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Pincode"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -157,6 +168,7 @@ const WorkerRegister = () => {
                                 />
 
                                 <input
+                                    required
                                     type="text"
                                     placeholder="State"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
