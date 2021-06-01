@@ -25,7 +25,7 @@ const Navbar = () => {
                                 <span className="mx-2 text-xl font-semibold bg-indigo-400 text-white rounded p-2 px-4">Register</span>
                             </Link>
 
-                            <Link to="/choose-user-type">
+                            <Link to="/login">
                                 <span className="mx-2 text-xl font-semibold bg-gray-500 text-white rounded p-2 px-4">Login</span>
                             </Link>
                         </div>
