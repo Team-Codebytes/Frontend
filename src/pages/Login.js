@@ -2,6 +2,12 @@ import React from 'react';
 import Navbar from '../components/Navbar'
 import loginImg from '../assets/login-img.jpg'
 
+import { RadioGroup, RadioButton } from 'react-radio-buttons'
+import DropdownList from "react-widgets/DropdownList";
+import "react-widgets/styles.css";
+
+
+
 const Login = () => {
     return (
         <div className="bg-gray-50 ">
@@ -14,10 +20,15 @@ const Login = () => {
                     <div className="flex flex-row justify-center">
                         <div className="md:w-1/2 mt-10 flex flex-col">
 
-                            <div>
-
+                            <div className="text-xl w-60 ml-2 py-2 font-medium"
+                            >
+                                <DropdownList
+                                    defaultValue="Choose user type"
+                                    data={["Common user", "Enterprise", "Worker"]}
+                                />
 
                             </div>
+
 
                             <input
                                 type="text"
