@@ -1,13 +1,23 @@
 import React  from 'react';
-import { createEnterpriseUser } from '../utils/api'
 import { useForm } from "react-hook-form";
+import $ from 'jquery'
+import { useHistory } from 'react-router-dom'
 
 
 
 
 const EnterpriseRegister = () => {
 
-    const { register,  handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm();
+     const history = useHistory();
+
+    async function createEnterpriseUser(user) {
+
+        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/create', user)
+      
+        localStorage.setItem('user', JSON.stringify(result))
+        history.push('/find-people')
+    }
 
     const onSubmit = (data) => {
         // e.preventDefault();
@@ -36,11 +46,10 @@ const EnterpriseRegister = () => {
 
             <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                 <h1 className="text-2xl font-semibold text-center mb-8">Register as an Enterprise</h1>
-                {/* <form onSubmit={(e)=>handleSubmit(e)}> */}
+                
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="flex md:flex-row flex-col justify-center">
-
                         <div className="md:w-1/2 m-6">
 
                                 <input
