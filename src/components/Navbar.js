@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import userIcon from '../assets/bx-user.svg'
+// import userIcon from '../assets/bx-user.svg'
+
 const Navbar = () => {
     return (
         <div className="bg-white  p-4 shadow-lg flex border-b-4">
@@ -16,7 +17,7 @@ const Navbar = () => {
                     <span className="text-xl font-semibold mx-4">Explore</span>
                 </Link> */}
             </div>
-            <img src={userIcon} alt="user" className=" w-8" />
+            {/* <img src={userIcon} alt="user" className=" w-8" /> */}
         </div>
     );
 }

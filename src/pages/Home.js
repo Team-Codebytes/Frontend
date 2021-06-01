@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import peopleImg1 from '../assets/people1.jpg'
 import peopleImg2 from '../assets/people2.jpg'
-import searchIcon from '../assets/bx-search.svg'
-import commentIcon from '../assets/bx-comment.svg'
+// import searchIcon from '../assets/bx-search.svg'
+// import commentIcon from '../assets/bx-comment.svg'
 
 
 const Home = () => {

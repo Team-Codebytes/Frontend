@@ -9,24 +9,12 @@ const UserRegister = () => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
 
-
-
-
-
     async function createUser(user) {
 
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/create', user)
-        //   .then(user => {
-        // 	  console.log(user)
+      
         localStorage.setItem('user', JSON.stringify(result))
         history.push('/find-people')
-
-
-        //   }
-        // )
-        // .catch(function(err){
-        // 	console.log(err);
-        // })
 
     }
 
@@ -56,7 +44,7 @@ const UserRegister = () => {
 
 
     return (
-        <div className="bg-red-200 py-10">
+        <div className="bg-red-200 md:py-10">
 
             <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                 <h1 className="text-2xl font-semibold text-center mb-8">Register as user</h1>
