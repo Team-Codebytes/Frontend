@@ -1,20 +1,25 @@
-import React  from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
 
 
-
-
 const EnterpriseRegister = () => {
 
     const { register, handleSubmit } = useForm();
-     const history = useHistory();
+    const history = useHistory();
+
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            history.push('/')
+        }
+    })
 
     async function createEnterpriseUser(user) {
 
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/create', user)
-      
+
         localStorage.setItem('user', JSON.stringify(result))
         history.push('/find-people')
     }
@@ -46,20 +51,20 @@ const EnterpriseRegister = () => {
 
             <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                 <h1 className="text-2xl font-semibold text-center mb-8">Register as an Enterprise</h1>
-                
+
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="flex md:flex-row flex-col justify-center">
                         <div className="md:w-1/2 m-6">
 
-                                <input
-                                    type="text"
-                                    placeholder="Company / Organization"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="companyName"
-                                    {...register("companyName")}
+                            <input
+                                type="text"
+                                placeholder="Company / Organization"
+                                className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                name="companyName"
+                                {...register("companyName")}
 
-                                />
+                            />
 
                             <input
                                 type="email"
@@ -84,7 +89,7 @@ const EnterpriseRegister = () => {
                                 {...register("phoneNo")}
                             />
 
-                            
+
                         </div>
 
 

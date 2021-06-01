@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 
+import ProtectedRoute from './utils/ProtectedRoute'
+
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SearchJobs from './pages/SearchJobs'
@@ -17,37 +19,41 @@ import UserProfile from './pages/UserProfile'
 
 
 
-
-
-
-
-
-
-
 const App = () => {
   return (
-    <div className="">
+    <div>
       <BrowserRouter>
         <Navbar />
 
         <Route exact path="/" component={Home} />
-        <Route exact path="/search-jobs" component={SearchJobs} />
-        <Route exact path="/search-people" component={SearchPeople} />
-        <Route exact path="/job-info-form" component={JobInfoForm} />
         <Route exact path="/choose-user-type" component={ChooseUser} />
         <Route exact path="/user-register" component={UserRegister} />
         <Route exact path="/enterprise-register" component={EnterpriseRegister} />
         <Route exact path="/worker-register" component={WorkerRegister} />
-        <Route exact path="/find-people" component={FindPeople} />
 
-                <Route exact path="/explore" component={Explore} />
-                <Route exact path="/profile" component={UserProfile} />
+        <Route exact path="/search-jobs">
+          <ProtectedRoute comp={SearchJobs} />
+        </Route>
 
+        <Route exact path="/search-people">
+          <ProtectedRoute comp={SearchPeople} />
+        </Route>
 
+        <Route exact path="/job-info-form">
+          <ProtectedRoute comp={JobInfoForm} />
+        </Route>
 
+        <Route exact path="/find-people">
+          <ProtectedRoute comp={FindPeople} />
+        </Route>
 
+        <Route exact path="/profile">
+          <ProtectedRoute comp={UserProfile} />
+        </Route>
 
-
+        <Route exact path="/explore">
+          <ProtectedRoute comp={Explore} />
+        </Route>
 
 
       </BrowserRouter>

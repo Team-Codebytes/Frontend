@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import $ from 'jquery'
-
-
 
 const WorkerRegister = () => {
 
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            history.push('/')
+        }
+    })
 
     async function createWorkerUser(user) {
 
@@ -50,7 +54,7 @@ const WorkerRegister = () => {
 
             <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                 <h1 className="text-2xl font-semibold text-center mb-8">Register as a Worker</h1>
-              
+
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex md:flex-row flex-col justify-center">
 

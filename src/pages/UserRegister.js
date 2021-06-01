@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
 
 const UserRegister = () => {
-
-    const { register, handleSubmit } = useForm();
+     const { register, handleSubmit } = useForm();
     const history = useHistory();
+
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            history.push('/')
+        }
+    })
+
 
     async function createUser(user) {
 
