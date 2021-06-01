@@ -3,10 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import ProtectedRoute from './utils/ProtectedRoute'
 
-import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SearchJobs from './pages/SearchJobs'
-import SearchPeople from './pages/SearchPeople'
 import JobInfoForm from './pages/JobInfoForm'
 import ChooseUser from './pages/ChooseUser'
 import UserRegister from './pages/UserRegister'
@@ -18,12 +16,11 @@ import UserProfile from './pages/UserProfile'
 
 
 
-
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
 
         <Route exact path="/" component={Home} />
         <Route exact path="/choose-user-type" component={ChooseUser} />
@@ -33,10 +30,6 @@ const App = () => {
 
         <Route exact path="/search-jobs">
           <ProtectedRoute comp={SearchJobs} />
-        </Route>
-
-        <Route exact path="/search-people">
-          <ProtectedRoute comp={SearchPeople} />
         </Route>
 
         <Route exact path="/job-info-form">

@@ -3,18 +3,9 @@ import { Link } from 'react-router-dom'
 import userIcon from '../assets/bx-user.svg'
 
 const Navbar = () => {
-//     const [isLoggedIn, setIsLoggedIn] =useState(false)
-
-//     useEffect(() => {
-//         if (!localStorage.getItem('user')) {
-// setIsLoggedIn(true)
-//         }
-
-//     },[isLoggedIn])
-
 
     return (
-        <div className="bg-white  p-4 shadow-lg flex border-b-4">
+        <div className="bg-white  p-4 shadow flex border-b-4">
             <Link to="/">
                 <h1 className="text-2xl font-bold text-gray-600 md:mx-20">Unorganized</h1>
             </Link>

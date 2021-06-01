@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Navbar from '../components/Navbar'
 // import { Link } from 'react-router-dom';
 
 import peopleImg1 from '../assets/people1.jpg'
@@ -10,6 +12,7 @@ import peopleImg2 from '../assets/people2.jpg'
 const Home = () => {
     return (
         <div className="bg-gray-50 ">
+            <Navbar/>
 
             <div className="pt-28 flex md:flex-row flex-col justify-center">
                 <div className="pt-4">
