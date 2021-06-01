@@ -1,18 +1,23 @@
-import React  from 'react';
-import { createWorkerUser } from '../utils/api'
+import React from 'react';
 import { useForm } from "react-hook-form";
-
-// import { Redirect } from 'react-router-dom'
 import { useHistory } from "react-router-dom";
+import $ from 'jquery'
 
 
 
 const WorkerRegister = () => {
 
-      let history = useHistory();
+    const { register, handleSubmit } = useForm();
+    const history = useHistory();
 
+    async function createWorkerUser(user) {
 
-    const { register,  handleSubmit } = useForm();
+        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
+
+        localStorage.setItem('user', JSON.stringify(result))
+        history.push('/search-jobs')
+
+    }
 
     const onSubmit = (data) => {
         // e.preventDefault();
@@ -25,7 +30,7 @@ const WorkerRegister = () => {
             Email_id: data.email,
             Password: data.password,
             Work_Category: data.jobTitle,
-            Experience:data.experience,
+            Experience: data.experience,
             Address: data.address,
             State: data.state,
             City: data.city,
@@ -33,19 +38,9 @@ const WorkerRegister = () => {
             Phone_no: data.phoneNo,
             Aadhar_Card: data.aadharNo
 
-
-            //job title
-            //experience
-     //category
-
         }
 
         createWorkerUser(newUser)
-        history.push('/home')
-
-
-
-
     }
 
 
@@ -55,13 +50,11 @@ const WorkerRegister = () => {
 
             <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                 <h1 className="text-2xl font-semibold text-center mb-8">Register as a Worker</h1>
-                {/* <form onSubmit={(e)=>handleSubmit(e)}> */}
+              
                 <form onSubmit={handleSubmit(onSubmit)}>
-
                     <div className="flex md:flex-row flex-col justify-center">
 
                         <div className="md:w-1/2 m-6">
-
                             <div className="flex">
                                 <input
                                     type="text"
@@ -103,7 +96,7 @@ const WorkerRegister = () => {
                                 {...register("phoneNo")}
                             />
 
-                              <input
+                            <input
                                 type="text"
                                 placeholder="Job Title"
                                 className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
@@ -111,7 +104,7 @@ const WorkerRegister = () => {
                                 {...register("jobTitle")}
                             />
 
-                              <input
+                            <input
                                 type="number"
                                 placeholder="Experience in years"
                                 className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"

@@ -12,7 +12,6 @@ function createUser(user) {
 		  localStorage.setItem('user', JSON.stringify(user))
 		//   history.push('/')
 
-		  
 	  }
 	)
 	.catch(function(err){

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Worker from '../components/Worker'
 import { Link } from 'react-router-dom'
-
-
 import $ from 'jquery'
 
 const FindPeople = () => {

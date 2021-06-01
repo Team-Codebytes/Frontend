@@ -1,5 +1,4 @@
 import React from 'react';
-// import { createUser } from '../utils/api'
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
@@ -48,7 +47,6 @@ const UserRegister = () => {
 
             <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                 <h1 className="text-2xl font-semibold text-center mb-8">Register as user</h1>
-                {/* <form onSubmit={(e)=>handleSubmit(e)}> */}
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="flex md:flex-row flex-col justify-center">
