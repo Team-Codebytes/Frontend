@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import $ from 'jquery'
+import { useHistory } from 'react-router-dom'
 
 
 import Navbar from '../components/Navbar'
@@ -14,6 +16,43 @@ const JobInfoForm = () => {
 
     const [workCategory, setWorkCategory] = useState('')
     const [experienceLevel, setExperienceLevel] = useState('')
+    const { register, handleSubmit } = useForm();
+        const history = useHistory();
+
+
+    async function postJob(data) {
+
+        let jobDetails = {
+
+            Job_Title: data.jobTitle,
+            Job_desc: data.description,
+            Work_Category: workCategory,
+            Experience_Level: experienceLevel,
+            Vacancies: data.vacancies,
+            Salary_Range: data.salary,
+            Address: data.address,
+            City: data.city,
+            State:data.state
+            
+           
+
+        }
+
+        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', jobDetails)
+
+        // localStorage.setItem('user', JSON.stringify(result))
+        history.push('/find-people')
+
+    }
+
+    const onSubmit = (data) => {
+        // e.preventDefault();
+        console.log('donne')
+        console.log(data)
+        postJob(data);
+
+    }
+
 
 
 
@@ -26,16 +65,22 @@ const JobInfoForm = () => {
                     <div className="bg-white border-2 p-12 w-1/2 mt-10">
 
                         <h1 className="text-2xl font-semibold text-center mb-8">Post a new job</h1>
-                        <div className="">
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <input
                                 type="text"
                                 placeholder="Job title"
-                                className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500" />
+                                className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                name="jobTitle"
+                                {...register("jobTitle")}
+                            />
 
                             <textarea
                                 type="text"
                                 placeholder="Job Description"
-                                className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500" />
+                                className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                name="description"
+                                {...register("description")}
+                            />
 
 
 
@@ -69,12 +114,16 @@ const JobInfoForm = () => {
                                     type="number"
                                     placeholder="No. of vacancies"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full  text-xl focus:outline-none focus:border-indigo-500"
+                                    name="vacancies"
+                                    {...register("vacancies")}
                                 />
                                 <input
                                     required
                                     type="text"
                                     placeholder="Salary range"
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                    name="salary"
+                                    {...register("salary")}
                                 />
 
 
@@ -84,7 +133,10 @@ const JobInfoForm = () => {
                                 <textarea
                                     type="text"
                                     placeholder="Address"
-                                    className="h-28 w-1/2 m-2 p-2 border-2 bg-gray-50 rounded text-xl focus:outline-none focus:border-indigo-500" />
+                                    className="h-28 w-1/2 m-2 p-2 border-2 bg-gray-50 rounded text-xl focus:outline-none focus:border-indigo-500"
+                                    name="address"
+                                    {...register("address")}
+                                />
 
                                 <div className="w-1/2">
                                     <input
@@ -92,12 +144,16 @@ const JobInfoForm = () => {
                                         type="text"
                                         placeholder="City"
                                         className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="city"
+                                        {...register("city")}
                                     />
                                     <input
                                         required
                                         type="text"
                                         placeholder="State"
                                         className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="state"
+                                        {...register("state")}
                                     />
                                 </div>
                             </div>
@@ -111,7 +167,7 @@ const JobInfoForm = () => {
 
 
 
-                        </div>
+                        </form>
 
 
                     </div>
