@@ -2,12 +2,40 @@ import React, { useEffect , useState }from 'react';
 import Navbar from '../components/Navbar'
 import JobPost from '../components/JobPost'
 
+import $ from 'jquery'
+
+
 const SearchJobs = () => {
+
+  const [allJobs, setAllJobs] = useState([]);
+
+
+
+   const getAllJobs = () => {
+
+        $.get('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/')
+            .then(jobsList => {
+
+                console.log(jobsList)
+                setAllJobs(jobsList)
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
+
+  useEffect(() => {
+
+    getAllJobs();
+    
+
+  
+},[])
+
   return (
     <div className="bg-gray-50">
       <Navbar />
-      <div className="py-10 md:px-20 flex flex-col items-center justify-center mx-auto">
-        <h1 className="text-4xl font-bold italic py-10 text-gray-500">Find work for you</h1>
+      <div className="py-10 md:px-20 flex flex-col mr-4 ml-auto">
 
         <JobPost />
         <JobPost />
