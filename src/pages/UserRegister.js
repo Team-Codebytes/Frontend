@@ -23,7 +23,7 @@ const UserRegister = () => {
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/create', user)
 
         localStorage.setItem('user', JSON.stringify(result))
-        history.push('/find-people')
+        history.push('/')
 
     }
 

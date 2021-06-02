@@ -23,7 +23,7 @@ const EnterpriseRegister = () => {
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/create', user)
 
         localStorage.setItem('user', JSON.stringify(result))
-        history.push('/find-people')
+        history.push('/')
     }
 
     const onSubmit = (data) => {

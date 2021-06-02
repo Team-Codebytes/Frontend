@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
 import { AvatarGenerator } from 'random-avatar-generator';
@@ -7,26 +6,17 @@ import { AvatarGenerator } from 'random-avatar-generator';
 
 const UserProfile = () => {
 
-    const history = useHistory();
     const generator = new AvatarGenerator();
     let avatar = generator.generateRandomAvatar();
 
-    const handleLogout = () => {
-        localStorage.removeItem('user');
-        history.push('/')
-    }
+    
 
     return (
         <div className="bg-gray-50">
             <Navbar />
             <div className="py-10">
                 <div className="p-10 mx-auto md:w-8/12 shadow-md rounded-md bg-white h-screen">
-                    <div className="w-32 mr-2 ml-auto">
-                        <button
-                            onClick={() => handleLogout()}
-                            className=" text-xl font-semibold bg-red-400 text-white rounded p-2 px-4 ">Logout</button>
-
-                    </div>
+                   
 
                     {/* <h1 className="text-3xl text-gray-800 text-center font-semibold">Update Profile</h1> */}
 

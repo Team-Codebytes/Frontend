@@ -27,10 +27,11 @@ const SearchJobs = () => {
   useEffect(() => {
 
     getAllJobs();
+    console.log(allJobs)
     
 
   
-},[])
+},[allJobs])
 
   return (
     <div className="bg-gray-50">

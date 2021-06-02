@@ -22,7 +22,7 @@ const WorkerRegister = () => {
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
 
         localStorage.setItem('user', JSON.stringify(result))
-        history.push('/search-jobs')
+        history.push('/')
 
     }
 

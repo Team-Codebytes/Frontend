@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Worker from '../components/Worker'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import $ from 'jquery'
 
 import Navbar from '../components/Navbar'
@@ -34,10 +34,12 @@ const FindPeople = () => {
         <div className="bg-gray-50">
             <Navbar />
             <div className="py-20 ">
-                <Link to="/job-info-form">
-                    <span className=" mr-auto ml-20 text-xl font-semibold bg-purple-400 text-white rounded p-2 px-4">+ Post a Job</span>
-                </Link>
-                <div className="flex md:flex-row flex-col flex-wrap px-20 justify-center">
+                <div className="w-1/4 mx-auto my-4">
+                    {/* <Link to="/job-info-form">
+                    <span className=" mx-auto text-xl font-semibold bg-purple-400 text-white rounded p-2 px-4">+ Post a Job</span>
+                    </Link> */}
+                </div>
+                <div className="flex md:flex-row flex-col flex-wrap px-10 justify-center">
 
                     {
                         allData.map((element) => {

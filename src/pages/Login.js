@@ -40,7 +40,7 @@ const Login = () => {
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', user)
 
         localStorage.setItem('user', JSON.stringify(result))
-        history.push('/find-people')
+        history.push('/')
 
     }
 

@@ -24,7 +24,7 @@ const JobInfoForm = () => {
         let user = JSON.parse(localStorage.getItem('user'))
         console.log(user._id)
         setCurrentUser(user._id)
-    })
+    },[])
 
 
     async function postJob(data) {
