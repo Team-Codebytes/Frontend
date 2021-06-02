@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect , useState }from 'react';
 import Navbar from '../components/Navbar'
-
 import JobPost from '../components/JobPost'
 
 const SearchJobs = () => {

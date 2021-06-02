@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
@@ -7,17 +7,24 @@ import { useHistory } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import DropdownList from "react-widgets/DropdownList";
 import "react-widgets/styles.css";
-
 import banner from '../assets/banner.jpg'
 
 
-
 const JobInfoForm = () => {
+
+
+    const [currentUser, setCurrentUser] = useState('')
 
     const [workCategory, setWorkCategory] = useState('')
     const [experienceLevel, setExperienceLevel] = useState('')
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user._id)
+        setCurrentUser(user._id)
+    })
 
 
     async function postJob(data) {
@@ -32,11 +39,14 @@ const JobInfoForm = () => {
             Salary_Range: data.salary,
             Address: data.address,
             City: data.city,
-            State: data.State
+            State: data.State,
+            commonUser: {
+                id: currentUser
+            }
         }
 
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/create', jobDetails)
-console.log(result)
+        console.log(result)
         // localStorage.setItem('user', JSON.stringify(result))
         history.push('/post-success')
 
