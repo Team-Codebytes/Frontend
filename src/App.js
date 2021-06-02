@@ -14,6 +14,8 @@ import FindPeople from './pages/FindPeople'
 import Explore from './pages/Explore'
 import UserProfile from './pages/UserProfile'
 import Login from './pages/Login'
+import PostSuccess from './pages/PostSuccess'
+
 
 
 
@@ -50,6 +52,10 @@ const App = () => {
 
         <Route exact path="/explore">
           <ProtectedRoute comp={Explore} />
+        </Route>
+
+        <Route exact path="/post-success">
+          <ProtectedRoute comp={PostSuccess} />
         </Route>
 
 

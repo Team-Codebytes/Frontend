@@ -17,7 +17,7 @@ const JobInfoForm = () => {
     const [workCategory, setWorkCategory] = useState('')
     const [experienceLevel, setExperienceLevel] = useState('')
     const { register, handleSubmit } = useForm();
-        const history = useHistory();
+    const history = useHistory();
 
 
     async function postJob(data) {
@@ -32,16 +32,13 @@ const JobInfoForm = () => {
             Salary_Range: data.salary,
             Address: data.address,
             City: data.city,
-            State:data.state
-            
-           
-
+            State: data.State
         }
 
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', jobDetails)
-
+        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/create', jobDetails)
+console.log(result)
         // localStorage.setItem('user', JSON.stringify(result))
-        history.push('/find-people')
+        history.push('/post-success')
 
     }
 
@@ -176,7 +173,7 @@ const JobInfoForm = () => {
                         <h1 className="text-3xl font-bold text-indigo-400">Post the job based on your requirements</h1>
                         <h1 className="text-3xl font-semibold py-4">and hire best people for your work</h1>
 
-                        <img src={banner} className="rounded-full w-80 h-80 m-10 " />
+                        <img src={banner} alt="postjob" className="rounded-full w-80 h-80 m-10 " />
 
                     </div>
 
