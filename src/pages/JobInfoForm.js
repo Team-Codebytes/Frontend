@@ -23,7 +23,10 @@ const JobInfoForm = () => {
     useEffect(() => {
         let user = JSON.parse(localStorage.getItem('user'))
         console.log(user._id)
-        setCurrentUser(user._id)
+        setCurrentUser({
+            id: user._id,
+            name: user.FirstName + ' ' + user.LastName
+        })
     },[])
 
 
@@ -41,7 +44,8 @@ const JobInfoForm = () => {
             City: data.city,
             State: data.State,
             commonUser: {
-                id: currentUser
+                id: currentUser.id,
+                Name:currentUser.name
             }
         }
 
