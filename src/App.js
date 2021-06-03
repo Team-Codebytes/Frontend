@@ -15,6 +15,7 @@ import Explore from './pages/Explore'
 import UserProfile from './pages/UserProfile'
 import Login from './pages/Login'
 import PostSuccess from './pages/PostSuccess'
+import WorkerProfile from './pages/WorkerProfile'
 
 
 
@@ -56,6 +57,10 @@ const App = () => {
 
         <Route exact path="/post-success">
           <ProtectedRoute comp={PostSuccess} />
+        </Route>
+
+        <Route exact path="/workers/:workerId">
+          <ProtectedRoute comp={WorkerProfile} />
         </Route>
 
 

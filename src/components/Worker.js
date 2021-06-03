@@ -9,7 +9,7 @@ const Worker = (props) => {
 
     return (
         <div
-            className="md:w-1/4 p-4 bg-white m-4 shadow-md rounded-md flex flex-row ">
+            className=" p-4 bg-white m-4 shadow-md rounded-md flex flex-row ">
             <img src={avatar} alt="avatar" className=" w-24 m-4 opacity-80" />
 
             <div className="m-4">

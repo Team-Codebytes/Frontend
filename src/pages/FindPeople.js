@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Worker from '../components/Worker'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import $ from 'jquery'
 
@@ -44,7 +45,9 @@ const FindPeople = () => {
                     {
                         allData.map((element) => {
                             return (
-                                <Worker data={element} key={element._id} />
+                                <Link to={`/workers/${element._id}`}>
+                                    <Worker data={element} key={element._id} />
+                                </Link>
 
                             )
                         })
