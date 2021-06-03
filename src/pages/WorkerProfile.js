@@ -2,11 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom'
 import $ from 'jquery'
+import { useForm } from "react-hook-form";
+
 
 
 const WorkerProfile = () => {
+
+    const { register, handleSubmit } = useForm();
+
     const [worker, setWorker] = useState({})
-        const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
+    const [currentUser, setCurrentUser] = useState('')
+
 
 
     let { workerId } = useParams();
@@ -28,7 +35,38 @@ const WorkerProfile = () => {
             })
 
 
+
     }, [])
+
+
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user._id)
+        setCurrentUser(user._id)
+    }, [])
+
+
+
+    const onSubmit = (data) => {
+        // e.preventDefault();
+        console.log('donne')
+        console.log(data)
+
+        let review = {
+            id: currentUser,
+            Text: data.review
+        }
+
+        $.post(`https://unorganisedsectorbackbnd.herokuapp.com/API/workers/${workerId}/AddComment`, review)
+.then(window.location.reload()
+)
+    }
+
+
+
+
+
+
 
     return (
         <div className="bg-gray-50 ">
@@ -58,34 +96,37 @@ const WorkerProfile = () => {
                     </div>
 
                     <div className="w-1/3 m-4 ">
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="m-2 bg-white p-4 rounded px-8">
-                            <h1 className="text-xl font-semibold text-gray-600 pb-4">Add a review</h1>
-                            <textarea
-                                required
-                                type="text"
-                                placeholder="Write a review"
-                                className=" h-24 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                            // name="address"
-                            // {...register("address")}
-                            />
 
-                            <div className="w-60 mt-2">
-                                <button
-                                    type="submit"
-                                    className="font-semibold bg-green-400 text-white text-xl px-4 py-2 rounded">Submit</button>
+                            <div className="m-2 bg-white p-4 rounded px-8">
+                                <h1 className="text-xl font-semibold text-gray-600 pb-4">Add a review</h1>
+                                <textarea
+                                    required
+                                    type="text"
+                                    placeholder="Write a review"
+                                    className=" h-24 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                    name="review"
+                                    {...register("review")}
+                                />
+
+                                <div className="w-60 mt-2">
+                                    <button
+                                        type="submit"
+                                        className="font-semibold bg-green-400 text-white text-xl px-4 py-2 rounded">Submit</button>
+
+                                </div>
 
                             </div>
-
-                        </div>
+                        </form>
 
 
                         <div className="m-2 bg-white p-4 px-8 rounded">
                             <h1 className="text-2xl">Reviews</h1>
 
-                            {   worker && worker.Comments.map(review => {
-                            return <div className=" p-2 m-2 rounded shadow">{review.Text}</div>
-                        })}
+                            {worker && worker.Comments.map(review => {
+                                return <div className=" p-2 m-2 rounded shadow">{review.Text}</div>
+                            })}
                         </div>
 
 
