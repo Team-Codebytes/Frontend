@@ -10,6 +10,8 @@ import Navbar from '../components/Navbar'
 const FindPeople = () => {
 
     const [allData, setAllData] = useState([])
+    const [searchTerm, setSearchTerm] = useState("");
+
 
     const getAllWorkers = () => {
 
@@ -31,18 +33,50 @@ const FindPeople = () => {
     }, [])
 
 
+
+
+
+    //     {
+    //   data
+    //     .filter((val) => {
+    //       if (searchTerm === "") {
+    //         return val;
+    //       } else if (
+    //         val.title.toLowerCase().includes(searchTerm.toLowerCase())
+    //       ) {
+    //         return val;
+    //       }
+    //     })
+    //     .map((post, key) => {
+    //       return ( 
+    //         <p className="blog" key={key}>
+    //               {post.title}
+    //         </p>
+    //       );
+    //     })
+    //    }
+    // }
+
+
     return (
         <div className="bg-gray-50">
             <Navbar />
-            <div className="py-20 ">
-                <div className="w-1/4 mx-auto my-4">
-                    {/* <Link to="/job-info-form">
-                    <span className=" mx-auto text-xl font-semibold bg-purple-400 text-white rounded p-2 px-4">+ Post a Job</span>
-                    </Link> */}
+            <div className="py-10 ">
+                <div className="w-1/2 mx-auto my-6">
+
+                    <input
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        type="text"
+                        placeholder="What type of worker you want?"
+                        className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full text-2xl focus:outline-none focus:border-indigo-500"
+                    // name="jobTitle"
+                    // {...register("jobTitle")}
+                    />
                 </div>
                 <div className="flex md:flex-row flex-col flex-wrap px-10 justify-center">
 
-                    {
+                    {/* {
                         allData.map((element) => {
                             return (
                                 <Link to={`/workers/${element._id}`}>
@@ -51,7 +85,31 @@ const FindPeople = () => {
 
                             )
                         })
-                    }
+                    } */}
+
+                    <div className="flex md:flex-row flex-col flex-wrap px-10 justify-center">
+                        {
+
+                            allData
+                                .filter((val) => {
+                                    if (searchTerm === "") {
+                                        return val;
+                                    } else if (val.Work_Category.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                        return val;
+                                    }
+                                })
+                                .map((element) => {
+                                    return (
+                                        <Link to={`/workers/${element._id}`}>
+                                            <Worker data={element} key={element._id} />
+                                        </Link>
+
+                                    )
+                                })
+                        }
+
+
+                    </div>
                 </div>
             </div>
         </div>
