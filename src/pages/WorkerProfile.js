@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import { useParams } from 'react-router-dom'
+import { useParams ,Link} from 'react-router-dom'
 import $ from 'jquery'
 import { useForm } from "react-hook-form";
 
@@ -12,7 +12,7 @@ const WorkerProfile = () => {
 
     const [worker, setWorker] = useState({})
     const [loading, setLoading] = useState(true)
-    const [currentUser, setCurrentUser] = useState('')
+    const [currentUser, setCurrentUser] = useState({})
 
 
 
@@ -42,7 +42,10 @@ const WorkerProfile = () => {
     useEffect(() => {
         let user = JSON.parse(localStorage.getItem('user'))
         console.log(user._id)
-        setCurrentUser(user._id)
+        setCurrentUser({
+            id: user._id,
+            name: user.FirstName + ' ' + user.LastName
+        })
     }, [])
 
 
@@ -53,13 +56,15 @@ const WorkerProfile = () => {
         console.log(data)
 
         let review = {
-            id: currentUser,
+            id: currentUser.id,
+            Name: currentUser.name,
+
             Text: data.review
         }
 
         $.post(`https://unorganisedsectorbackbnd.herokuapp.com/API/workers/${workerId}/AddComment`, review)
-.then(window.location.reload()
-)
+            .then(window.location.reload()
+            )
     }
 
 
@@ -71,10 +76,13 @@ const WorkerProfile = () => {
     return (
         <div className="bg-gray-50 ">
             <Navbar />
+            <Link to="/find-people">
+                <button className="ml-40 mt-10 text-xl bg-gray-600 text-white mx-10 px-4 rounded-md">Back</button>
+            </Link>
             {!loading ?
                 <div className="py-10 flex flex-row justify-center">
 
-                    <div className="w-1/2 my-12">
+                    <div className="w-1/2 my-4">
                         <div className="bg-white p-10 mx-10 rounded sticky top-28">
                             <div className="flex items-center">
 
@@ -122,10 +130,20 @@ const WorkerProfile = () => {
 
 
                         <div className="m-2 bg-white p-4 px-8 rounded">
-                            <h1 className="text-2xl">Reviews</h1>
+                            <h1 className="text-2xl">{`${worker && worker.Comments.length} Reviews`}</h1>
 
                             {worker && worker.Comments.map(review => {
-                                return <div className=" p-2 m-2 rounded shadow">{review.Text}</div>
+                                return (
+                                    <div className=" p-4 m-2 rounded shadow-sm border-2 text-xl">
+                                        <div className="flex">
+                                            <div className="bg-gray-200 border-gray-300 m-1 h-6 w-6 rounded-full border-2"></div>
+                                            <h1 className="font-medium ">{review.Name}</h1>
+
+
+                                        </div>
+                                        <p className=" px-8 ">{review.Text}</p>
+                                    </div>
+                                )
                             })}
                         </div>
 
