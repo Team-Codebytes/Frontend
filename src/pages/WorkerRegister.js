@@ -43,7 +43,8 @@ const WorkerRegister = () => {
             City: data.city,
             Pincode: data.pincode,
             Phone_no: data.phoneNo,
-            Aadhar_Card: data.aadharNo
+            Aadhar_Card: data.aadharNo,
+            Services:data.services
 
         }
 
@@ -126,6 +127,15 @@ const WorkerRegister = () => {
                                     className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
                                     name="experience"
                                     {...register("experience")}
+                                />
+
+                                 <input
+                                    required
+                                    type="text"
+                                    placeholder="Service provided"
+                                    className="m-2 p-2 h-20 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                    name="services"
+                                    {...register("services")}
                                 />
                             </div>
 

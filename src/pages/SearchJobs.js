@@ -67,6 +67,7 @@ const SearchJobs = () => {
             .map((job) => {
               return <JobPost details={job} />
             })
+  
         }
 
       </div>
