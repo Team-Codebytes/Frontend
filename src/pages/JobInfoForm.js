@@ -27,7 +27,7 @@ const JobInfoForm = () => {
             id: user._id,
             name: user.FirstName + ' ' + user.LastName
         })
-    },[])
+    }, [])
 
 
     async function postJob(data) {
@@ -45,7 +45,9 @@ const JobInfoForm = () => {
             State: data.State,
             commonUser: {
                 id: currentUser.id,
-                Name:currentUser.name
+                Name: currentUser.name,
+                Phone_no: currentUser.Phone_no
+
             }
         }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import userIcon from '../assets/bx-user.svg'
 import { useHistory } from 'react-router-dom'
@@ -6,16 +6,33 @@ import { useHistory } from 'react-router-dom'
 
 const Navbar = () => {
 
+    const [currentUser, setCurrentUser] = useState('')
     const history = useHistory();
 
 
     const handleLogout = () => {
         localStorage.removeItem('user');
         history.push('/')
+        window.location.reload()
     }
 
+    useEffect(() => {
+
+        if (JSON.parse(localStorage.getItem('user') !== null)){
+            
+        
+            let user = JSON.parse(localStorage.getItem('user'))
+            // console.log(user._id)
+            setCurrentUser({
+                id: user._id,
+                name: user.FirstName
+            })
+            
+        }
+    }, [])
+
     return (
-        <div className="bg-white  p-4 shadow flex border-b-4 sticky top-0 z-10">
+        <div className="bg-white  p-5 shadow flex border-b-4 sticky top-0 z-10">
             <Link to="/">
                 <h1 className="text-2xl font-bold text-gray-600 md:mx-20">Unorganized</h1>
             </Link>
@@ -23,20 +40,24 @@ const Navbar = () => {
                 {
                     localStorage.getItem('user') ?
                         <div className="flex">
-                            {/* <Link to="/find-people">
-                                <span className="text-xl font-semibold mx-4">Explore</span>
-                            </Link> */}
-                            <div className=" mx-2">
-                                <button
-                                    onClick={() => handleLogout()}
-                                    className=" text-xl font-semibold bg-red-400 text-white rounded p-1 px-4 ">Logout</button>
 
-                            </div>
+                            <details className="shadow absolute bg-white   right-10 w-40 px-4 rounded border-2">
+                                <summary className=" bg-white relative flex border-gray-300 shadow-sm ">
+                                    <h1 className="text-xl font-semibold m-1 p-1">{currentUser.name}</h1>
 
-                            <Link to="/profile">
-                                <img src={userIcon} alt="user" className=" w-10 opacity-70" />
-                            </Link>
 
+                                    <img src={userIcon} alt="user" className="mr-1 ml-auto w-8 opacity-70" />
+                                </summary>
+
+                                <div className="text-xl pt-2 flex flex-col pb-2">
+                                    <Link to="/" className="hover:bg-gray-100 p-2 border-t-1">Home</Link>
+                                    <Link to="/profile" className="hover:bg-gray-100 p-2">My Profile</Link>
+                                    <button
+                                        onClick={() => handleLogout()}
+                                        className="hover:bg-gray-100 p-2 text-left  font-semibold text-red-400">Logout</button>
+                                </div>
+
+                            </details>
 
                         </div> :
                         <div>
