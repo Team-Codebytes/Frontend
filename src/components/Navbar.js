@@ -43,7 +43,7 @@ const Navbar = () => {
 
                             <details className="shadow absolute bg-white   right-10 w-40 px-4 rounded border-2">
                                 <summary className=" bg-white relative flex border-gray-300 shadow-sm ">
-                                    <h1 className="text-xl font-semibold m-1 p-1">{currentUser.name}</h1>
+                                    <h1 className="text-xl capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
 
 
                                     <img src={userIcon} alt="user" className="mr-1 ml-auto w-8 opacity-70" />
