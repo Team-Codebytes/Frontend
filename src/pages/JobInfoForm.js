@@ -75,9 +75,9 @@ const JobInfoForm = () => {
         <div className="bg-gray-50">
             <Navbar />
             <div className=" ">
-                <div className=" bg-gray-50 rounded-md  shadow flex flex-row-reverse justify-center">
+                <div className=" bg-gray-50 rounded-md  shadow flex md:flex-row-reverse flex-col-reverse justify-center">
 
-                    <div className="bg-white border-2 p-12 w-1/2 mt-10">
+                    <div className="bg-white border-2 md:p-12 p-6 md:w-1/2 mt-10">
 
                         <h1 className="text-2xl font-semibold text-center mb-8">Post a new job</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -99,7 +99,7 @@ const JobInfoForm = () => {
 
 
 
-                            <div className="flex">
+                            <div className=" flex md:flex-row flex-col">
                                 <div className="text-xl md:w-1/2  ml-2 py-2 font-medium"
                                 >
                                     <DropdownList
@@ -123,7 +123,7 @@ const JobInfoForm = () => {
 
                             </div>
 
-                            <div className="flex flex-row">
+                            <div className="flex md:flex-row flex-col">
                                 <input
                                     required
                                     type="number"
@@ -144,16 +144,16 @@ const JobInfoForm = () => {
 
                             </div>
 
-                            <div className="flex flex-row">
+                            <div className="flex md:flex-row flex-col">
                                 <textarea
                                     type="text"
                                     placeholder="Address"
-                                    className="h-28 w-1/2 m-2 p-2 border-2 bg-gray-50 rounded text-xl focus:outline-none focus:border-indigo-500"
+                                    className="h-28 md:w-1/2 m-2 p-2 border-2 bg-gray-50 rounded text-xl focus:outline-none focus:border-indigo-500"
                                     name="address"
                                     {...register("address")}
                                 />
 
-                                <div className="w-1/2">
+                                <div className="md:w-1/2">
                                     <input
                                         required
                                         type="text"
@@ -187,11 +187,11 @@ const JobInfoForm = () => {
 
                     </div>
 
-                    <div className=" flex flex-col justify-center text-left w-96 mx-20 mt-10">
+                    <div className=" flex flex-col justify-center text-left md:w-96 md:mx-20 mx-10 mt-10">
                         <h1 className="text-3xl font-bold text-indigo-400">Post the job based on your requirements</h1>
                         <h1 className="text-3xl font-semibold py-4">and hire best people for your work</h1>
 
-                        <img src={banner} alt="postjob" className="rounded-full w-80 h-80 m-10 " />
+                        <img src={banner} alt="postjob" className="rounded-full md:w-80 md:h-80 w-40 h-40 m-10 " />
 
                     </div>
 

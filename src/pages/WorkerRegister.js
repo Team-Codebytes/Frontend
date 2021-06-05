@@ -56,7 +56,7 @@ const WorkerRegister = () => {
     return (
         <div className="bg-yellow-200 ">
             <Navbar />
-            <div className="py-10">
+            <div className="md:py-10">
 
                 <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                     <h1 className="text-2xl font-semibold text-center mb-8">Register as a Worker</h1>

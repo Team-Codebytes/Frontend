@@ -52,7 +52,7 @@ const EnterpriseRegister = () => {
         <div className="bg-indigo-200 ">
             <Navbar />
 
-            <div className="py-10 ">
+            <div className="md:py-10 ">
 
 
                 <div className="mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">

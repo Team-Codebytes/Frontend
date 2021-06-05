@@ -8,7 +8,12 @@ import $ from 'jquery'
 const SearchJobs = () => {
 
   const [allJobs, setAllJobs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchCity, setSearchCity] = useState("");
+  //   const [searchJob, setSearchJob] = useState("");
+
+    const [searchTerm, setSearchTerm] = useState("");
+
+
 
 
 
@@ -39,16 +44,25 @@ const SearchJobs = () => {
     <div className="bg-gray-50">
       <Navbar />
 
-      <div className="w-1/2 mx-auto my-6">
+      <div className="md:w-1/2 mx-auto px-4 my-6">
 
         <input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           type="text"
-          placeholder="Search job by name or city"
-          className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full text-2xl focus:outline-none focus:border-indigo-500"
+          placeholder="Search job by city or job title"
+          className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full md:text-2xl text-xl focus:outline-none focus:border-indigo-500"
         
         />
+
+        {/* <input
+          value={searchJob}
+          onChange={(e) => setSearchJob(e.target.value)}
+          type="text"
+          placeholder="Search job by name"
+          className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full text-2xl focus:outline-none focus:border-indigo-500"
+        
+        /> */}
       </div>
       <div className="py-10 md:px-20 flex flex-col justify-center items-center">
        

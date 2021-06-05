@@ -81,13 +81,13 @@ const WorkerProfile = () => {
         <div className="bg-gray-50 ">
             <Navbar />
             <Link to="/find-people">
-                <button className="ml-40 mt-10 text-xl bg-gray-600 text-white mx-10 px-4 rounded-md">Back</button>
+                <button className="md:ml-40 mt-10 text-xl bg-gray-600 text-white mx-10 px-4 rounded-md">Back</button>
             </Link>
             {!loading ?
-                <div className="py-10 flex flex-row justify-center">
+                <div className="md:py-10 flex md:flex-row flex-col justify-center">
 
-                    <div className="w-1/2 my-4">
-                        <div className="bg-white p-10 mx-10 rounded sticky top-28">
+                    <div className="md:w-1/2 my-4">
+                        <div className="bg-white md:p-10 md:mx-10 p-2 py-6 rounded sticky top-28">
                             <div className="flex items-center">
 
                                 <p className="ml-2 mr-auto capitalize text-2xl border-2 max-w-60 rounded-full px-4 py-2 text-white bg-indigo-400">{worker.Work_Category}</p>
@@ -107,7 +107,7 @@ const WorkerProfile = () => {
 
                     </div>
 
-                    <div className="w-1/3 m-4 ">
+                    <div className="md:w-1/3 md:m-4 ">
                         <form onSubmit={handleSubmit(onSubmit)}>
 
 

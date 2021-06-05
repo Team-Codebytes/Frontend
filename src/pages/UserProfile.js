@@ -80,9 +80,9 @@ const UserProfile = () => {
                     <div className="mt-20">
                         <img src={avatar} alt="avatar" className="mx-auto w-32 m-4 opacity-80" />
                         <h1 className="text-center text-4xl font-semibold py-2 capitalize">{`${currentUser.firstName}  ${currentUser.lastName}`}</h1>
-                        <h1 className="text-center text-xl font-semibold bg-green-100 w-1/2 mx-auto p-2 m-2 rounded">{currentUser.email}</h1>
+                        <h1 className="text-center text-xl font-semibold bg-green-100 md:w-1/2 mx-auto p-2 m-2 rounded">{currentUser.email}</h1>
 
-                        <h1 className="text-center text-2xl font-semibold bg-purple-400 text-white w-1/2 mx-auto p-2 m-2 rounded">{currentUser.userType}</h1>
+                        <h1 className="text-center text-2xl font-semibold bg-purple-400 text-white md:w-1/2 mx-auto p-2 m-2 rounded">{currentUser.userType}</h1>
 
                     </div>
 

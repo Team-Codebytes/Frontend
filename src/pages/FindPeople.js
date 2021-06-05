@@ -62,19 +62,19 @@ const FindPeople = () => {
         <div className="bg-gray-50">
             <Navbar />
             <div className="py-10 ">
-                <div className="w-1/2 mx-auto my-6">
+                <div className="md:w-1/2 mx-auto px-2 my-6">
 
                     <input
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         type="text"
                         placeholder="What type of worker you want?"
-                        className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full text-2xl focus:outline-none focus:border-indigo-500"
+                        className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full md:text-2xl text-xl focus:outline-none focus:border-indigo-500"
                     // name="jobTitle"
                     // {...register("jobTitle")}
                     />
                 </div>
-                <div className="flex md:flex-row flex-col flex-wrap px-10 justify-center">
+                <div className="flex md:flex-row flex-col flex-wrap md:px-10 justify-center">
 
                     {/* {
                         allData.map((element) => {
@@ -87,7 +87,7 @@ const FindPeople = () => {
                         })
                     } */}
 
-                    <div className="flex md:flex-row flex-col flex-wrap px-10 justify-center">
+                    <div className="flex md:flex-row flex-col flex-wrap md:px-10 justify-center">
                         {
 
                             allData
