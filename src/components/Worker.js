@@ -13,7 +13,7 @@ const Worker = (props) => {
             <img src={avatar} alt="avatar" className=" w-24 m-4 opacity-80" />
 
             <div className="m-4">
-                <h1 className="text-2xl font-semibold ">{props.data.Work_Category}</h1>
+                <h1 className="capitalize text-2xl font-semibold ">{props.data.Work_Category}</h1>
                 <h1 className="text-md font-semibold ">{`${props.data.FirstName} ${props.data.LastName}`}</h1>
                 <p>{`Experience : ${props.data.Experience}`}</p>
                 <p>City: pune</p>
