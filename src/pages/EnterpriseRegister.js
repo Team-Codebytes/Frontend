@@ -32,7 +32,7 @@ const EnterpriseRegister = () => {
         console.log(data)
 
         let newUser = {
-            FirstName: data.companyName,
+            CompanyName: data.companyName,
             Email_id: data.email,
             Password: data.password,
             Address: data.address,

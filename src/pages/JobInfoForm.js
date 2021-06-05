@@ -25,7 +25,9 @@ const JobInfoForm = () => {
         console.log(user._id)
         setCurrentUser({
             id: user._id,
-            name: user.FirstName + ' ' + user.LastName
+            name: `${user.FirstName || user.CompanyName}  ${user.LastName || ''}`,
+            phoneNo: user.Phone_no
+
         })
     }, [])
 
@@ -45,8 +47,8 @@ const JobInfoForm = () => {
             State: data.State,
             commonUser: {
                 id: currentUser.id,
-                Name: currentUser.name,
-                Phone_no: currentUser.Phone_no
+                Name: currentUser.name ,
+                Phone_no: currentUser.phoneNo
 
             }
         }

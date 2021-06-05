@@ -25,8 +25,8 @@ const UserProfile = () => {
             // console.log(user._id)
             setCurrentUser({
                 id: user._id,
-                firstName: user.FirstName,
-                lastName: user.LastName,
+                firstName: user.FirstName || user.CompanyName,
+                lastName: user.LastName || ' ',
                 email: user.Email_id,
                 userType: user.user_type
 

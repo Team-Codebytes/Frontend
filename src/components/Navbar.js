@@ -25,7 +25,8 @@ const Navbar = () => {
             // console.log(user._id)
             setCurrentUser({
                 id: user._id,
-                name: user.FirstName
+                name: user.FirstName || user.CompanyName
+            
             })
             
         }
@@ -41,7 +42,7 @@ const Navbar = () => {
                     localStorage.getItem('user') ?
                         <div className="flex">
 
-                            <details className="shadow absolute bg-white   right-10 w-40 px-4 rounded border-2">
+                            <details className="shadow absolute bg-white   right-10  px-4 rounded border-2">
                                 <summary className=" bg-white relative flex border-gray-300 shadow-sm ">
                                     <h1 className="text-xl capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
 

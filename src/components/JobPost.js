@@ -15,7 +15,7 @@ const JobPost = ({ details }) => {
 
                     <p><span className="font-semibold">Expeience level : </span> { details.Experience_Level}</p>
                     <p><span className="font-semibold">Salary Range : </span> { details.Salary_Range}</p>
-                    <p><span className="font-semibold">Vacancies : </span> 4</p>
+                    <p><span className="font-semibold">Vacancies : </span> {details.Vacancies }</p>
 
                     <p><span className="font-semibold">City : </span>{ details.City}</p>
                     <p><span className="font-semibold">Posted by : </span> { details.commonUser.Name}</p>
