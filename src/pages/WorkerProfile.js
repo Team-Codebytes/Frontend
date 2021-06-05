@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import { useParams ,Link} from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import $ from 'jquery'
 import { useForm } from "react-hook-form";
 
+import { AvatarGenerator } from 'random-avatar-generator';
 
 
 const WorkerProfile = () => {
+
+    const generator = new AvatarGenerator();
+    // let avatar = generator.generateRandomAvatar();
 
     const { register, handleSubmit } = useForm();
 
@@ -135,11 +139,9 @@ const WorkerProfile = () => {
                             {worker && worker.Comments.map(review => {
                                 return (
                                     <div className=" p-4 m-2 rounded shadow-sm border-2 text-xl">
-                                        <div className="flex">
-                                            <div className="bg-gray-200 border-gray-300 m-1 h-6 w-6 rounded-full border-2"></div>
-                                            <h1 className="font-medium ">{review.Name}</h1>
-
-
+                                        <div className="flex flex-row">
+                                            <img src={generator.generateRandomAvatar()} alt="avatar" className="m-1 h-6 w-6 opacity-80" />
+                                            <h1 className="font-medium text-base m-1">{review.Name}</h1>
                                         </div>
                                         <p className=" px-8 ">{review.Text}</p>
                                     </div>

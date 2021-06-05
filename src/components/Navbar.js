@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import userIcon from '../assets/bx-user.svg'
 import { useHistory } from 'react-router-dom'
+import { AvatarGenerator } from 'random-avatar-generator';
+
 
 
 const Navbar = () => {
+
+        const generator = new AvatarGenerator();
+
 
     const [currentUser, setCurrentUser] = useState('')
     const history = useHistory();
@@ -47,7 +52,7 @@ const Navbar = () => {
                                     <h1 className="text-xl capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
 
 
-                                    <img src={userIcon} alt="user" className="mr-1 ml-auto w-8 opacity-70" />
+                                    <img src={generator.generateRandomAvatar()} alt="user" className="mr-1 ml-auto w-8 opacity-80 " />
                                 </summary>
 
                                 <div className="text-xl pt-2 flex flex-col pb-2">

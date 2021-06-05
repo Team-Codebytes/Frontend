@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar'
 import $ from 'jquery'
-import JobPost from '../components/JobPost'
+// import JobPost from '../components/JobPost'
 
 
 import { AvatarGenerator } from 'random-avatar-generator';
