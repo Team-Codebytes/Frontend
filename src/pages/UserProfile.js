@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar'
 import $ from 'jquery'
+import { useForm } from "react-hook-form";
+import editIcon from '../assets/edit.svg'
+
 // import JobPost from '../components/JobPost'
 
 
@@ -13,7 +16,10 @@ const UserProfile = () => {
     let avatar = generator.generateRandomAvatar();
     const [currentUser, setCurrentUser] = useState('')
     const [allJobs, setAllJobs] = useState([]);
+    const [showEdit, setShowEdit] = useState(false)
 
+
+    const { register, handleSubmit } = useForm();
 
 
     useEffect(() => {
@@ -51,11 +57,11 @@ const UserProfile = () => {
     useEffect(() => {
 
         getAllJobs();
-        console.log(allJobs)
+        // console.log(allJobs)
 
 
 
-    }, [allJobs])
+    }, [])
 
 
     const deletePost = (id) => {
@@ -67,7 +73,23 @@ const UserProfile = () => {
             .then(res => console.log(res))
     }
 
+    async function updateProfile(data) {
 
+        let profile = {
+            name: data.profileImg[0].name,
+            user_type: currentUser.userType,
+            image_cat:'Profile'
+        }
+
+         $.post(`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}`, profile)
+            // .then(window.location.reload()
+            // )
+    }
+
+    const onSubmit = (data) => {
+        console.log(data);
+        updateProfile(data);
+    };
 
     return (
         <div className="bg-gray-50">
@@ -76,9 +98,24 @@ const UserProfile = () => {
                 <div className="p-10 mx-auto md:w-8/12 shadow-md rounded-md bg-white ">
 
 
-
-                    <div className="mt-20">
+                    <img src={editIcon}
+                        onClick={() => setShowEdit(!showEdit)}
+                        alt="edit"
+                        className="ml-auto mr-2 bg-gray-50 p-2 rounded-full hover:bg-green-50 cursor-pointer" />
+                    <div className="mt-10">
                         <img src={avatar} alt="avatar" className="mx-auto w-32 m-4 opacity-80" />
+
+                        {showEdit ?
+
+                            <form onSubmit={handleSubmit(onSubmit)}
+                                className="flex py-6 items-center p-4 border-2 shadow-sm my-4 w-1/2 mx-auto rounded">
+                                <input type="file" name="picture" {...register("profileImg")}
+                                />
+                                <button className="bg-indigo-400 text-white p-1 px-2 rounded">Submit</button>
+                            </form>
+                            : <div></div>
+                        }
+
                         <h1 className="text-center text-4xl font-semibold py-2 capitalize">{`${currentUser.firstName}  ${currentUser.lastName}`}</h1>
                         <h1 className="text-center text-xl font-semibold bg-green-100 md:w-1/2 mx-auto p-2 m-2 rounded">{currentUser.email}</h1>
 
