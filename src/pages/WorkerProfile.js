@@ -40,7 +40,7 @@ const WorkerProfile = () => {
 
 
 
-    }, [])
+    }, [workerId])
 
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const WorkerProfile = () => {
             id: user._id,
             name: user.FirstName + ' ' + user.LastName
         })
-    }, [])
+    },[])
 
 
 
@@ -97,7 +97,7 @@ const WorkerProfile = () => {
 
                             <div className="text-xl m-4 mt-8">
                                 <p className="text-2xl py-2">Services provided</p>
-                                <p className="py-2">Repairing of home appliances, electricity fitting, automation, motors related issues also something and some other services</p>
+                                <p className="py-2">{worker.Services }</p>
                                 <p className="py-2">{`Experience : ${worker.Experience}`}</p>
                                 <p className="py-2">{`Contact : ${worker.Phone_no}`}</p>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import userIcon from '../assets/bx-user.svg'
+// import userIcon from '../assets/bx-user.svg'
 import { useHistory } from 'react-router-dom'
 import { AvatarGenerator } from 'random-avatar-generator';
 
@@ -8,7 +8,7 @@ import { AvatarGenerator } from 'random-avatar-generator';
 
 const Navbar = () => {
 
-        const generator = new AvatarGenerator();
+    const generator = new AvatarGenerator();
 
 
     const [currentUser, setCurrentUser] = useState('')
@@ -23,17 +23,17 @@ const Navbar = () => {
 
     useEffect(() => {
 
-        if (JSON.parse(localStorage.getItem('user') !== null)){
-            
-        
+        if (JSON.parse(localStorage.getItem('user') !== null)) {
+
+
             let user = JSON.parse(localStorage.getItem('user'))
             // console.log(user._id)
             setCurrentUser({
                 id: user._id,
                 name: user.FirstName || user.CompanyName
-            
+
             })
-            
+
         }
     }, [])
 
@@ -48,11 +48,11 @@ const Navbar = () => {
                         <div className="flex">
 
                             <details className="shadow absolute bg-white   right-10  px-4 rounded border-2">
-                                <summary className=" bg-white relative flex border-gray-300 shadow-sm ">
-                                    <h1 className="text-xl capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
+                                <summary className="curser-pointer bg-white  relative flex border-gray-300 shadow-sm ">
+                                    <h1 className="text-xl curser-pointer capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
 
 
-                                    <img src={generator.generateRandomAvatar()} alt="user" className="mr-1 ml-auto w-8 opacity-80 " />
+                                    <img src={generator.generateRandomAvatar()} alt="user" className="curser-pointer mr-1 ml-auto w-8 opacity-80 " />
                                 </summary>
 
                                 <div className="text-xl pt-2 flex flex-col pb-2">

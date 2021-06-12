@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import $ from 'jquery'
 
 import Navbar from '../components/Navbar'
+import loader from '../assets/loader.svg'
+
 
 
 const WorkerRegister = () => {
 
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+    const [loading, setLoading] = useState(false)
+
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
@@ -18,10 +22,15 @@ const WorkerRegister = () => {
     })
 
     async function createWorkerUser(user) {
+        setLoading(true)
+
 
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
 
         localStorage.setItem('user', JSON.stringify(result))
+        setLoading(false)
+
+
         history.push('/')
 
     }
@@ -44,7 +53,7 @@ const WorkerRegister = () => {
             Pincode: data.pincode,
             Phone_no: data.phoneNo,
             Aadhar_Card: data.aadharNo,
-            Services:data.services
+            Services: data.services
 
         }
 
@@ -129,7 +138,7 @@ const WorkerRegister = () => {
                                     {...register("experience")}
                                 />
 
-                                 <input
+                                <input
                                     required
                                     type="text"
                                     placeholder="Service provided"
@@ -189,7 +198,12 @@ const WorkerRegister = () => {
                                 <div className="w-60 md:ml-40 mt-4">
                                     <button
                                         type="submit"
-                                        className="font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Register</button>
+                                        className="flex font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Register
+                                         {loading ?
+                                            <img src={loader} alt="loading..." className=" text-center w-8 mx-4 opacity-70 animate-spin  " />
+                                            : <div></div>
+                                        }
+                                    </button>
 
                                 </div>
 

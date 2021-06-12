@@ -53,21 +53,21 @@ const Home = () => {
                                 <img src={commentIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
                                 <Link to="/job-info-form">
 
-                                    <button className="mx-auto bg-purple-400 text-xl m-4 font-bold shadow rounded-md px-8 py-4 text-white">Post a job</button>
+                                    <button className=" mx-auto bg-purple-400 hover:bg-purple-500 text-xl m-4 font-bold shadow rounded-md px-8 py-4 text-white">Post a job</button>
                                 </Link>
                             </div>
 
                             <div className="mx-4 flex flex-col items-center">
                                 <img src={searchIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
                                 <Link to="/search-jobs">
-                                    <button className="bg-pink-400 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find a job</button>
+                                    <button className="bg-pink-400 hover:bg-pink-500 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find a job</button>
                                 </Link>
                             </div>
 
                             <div className="mx-4  flex flex-col items-center">
                                 <img src={peopleIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
                                 <Link to="/find-people">
-                                    <button className="bg-gray-600 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find workers</button>
+                                    <button className="bg-gray-600 hover:bg-gray-700 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find workers</button>
                                 </Link>
                             </div>
 
