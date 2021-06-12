@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar'
 import loginImg from '../assets/login-img.jpg'
+import loader from '../assets/loader.svg'
+
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
@@ -16,6 +18,10 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm();
     const [userType, setUserType] = useState('')
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
+
+
     const history = useHistory();
 
 
@@ -30,47 +36,83 @@ const Login = () => {
 
     async function loginUser(data) {
 
-        let user = {
+        try {
+            setLoading(true)
+            let user = {
+                Phone_no: data.phoneNo,
+                Password: data.password,
+            }
 
-            Phone_no: data.phoneNo,
-            Password: data.password,
+            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', user)
+            if (result == null) {
+                throw new Error('Login failed! Credentials did not match. ')
+            }
 
+            setLoading(false)
+            localStorage.setItem('user', JSON.stringify(result))
+            history.push('/')
+
+        } catch (error) {
+            setLoading(false)
+            setError(error)
+            console.log(error)
         }
-
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', user)
-
-        localStorage.setItem('user', JSON.stringify(result))
-        history.push('/')
 
     }
 
     async function loginWorker(data) {
 
-        let user = {
+        try {
+            setLoading(true)
 
-            Phone_no: data.phoneNo,
-            Password: data.password,
+            let user = {
+                Phone_no: data.phoneNo,
+                Password: data.password,
+            }
+
+            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/login', user)
+
+            if (result == null) {
+                throw new Error('Login failed! Credentials did not match. ')
+            }
+            setLoading(false)
+
+            localStorage.setItem('user', JSON.stringify(result))
+            history.push('/find-people')
+
+        } catch (error) {
+            setLoading(false)
+            setError(error)
+            console.log(error)
+
         }
-
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/login', user)
-
-        localStorage.setItem('user', JSON.stringify(result))
-        history.push('/find-people')
 
     }
 
     async function loginEnterprise(data) {
 
-        let user = {
+        try {
+            setLoading(true)
 
-            Email: data.email,
-            Password: data.password,
+            let user = {
+                Email: data.email,
+                Password: data.password,
+            }
+
+            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/login', user)
+            if (result == null) {
+                throw new Error('Login failed! Credentials did not match. ')
+            }
+            setLoading(false)
+
+            localStorage.setItem('user', JSON.stringify(result))
+            history.push('/find-people')
+
+        } catch (error) {
+            setLoading(false)
+            setError(error)
+            console.log(error)
         }
-
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/login', user)
-
-        localStorage.setItem('user', JSON.stringify(result))
-        history.push('/find-people')
 
     }
 
@@ -99,7 +141,7 @@ const Login = () => {
     return (
         <div className="bg-gray-50 ">
             <Navbar />
-            <div className="md:py-20 ">
+            <div className="md:py-10 ">
                 <div className="md:w-8/12 bg-white p-20  shadow-md border-2  rounded-md m-auto">
                     <h1 className="text-3xl font-semibold text-gray-500 ">Welcome back !</h1>
 
@@ -156,10 +198,21 @@ const Login = () => {
                                     type="submit"
                                     className="m-2 w-32 font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Login</button>
                             </div>
+
+
                         </form>
+                        <div >
+                            {loading ?
+                                <img src={loader} alt="loading..." className="mx-auto text-center w-10 opacity-70 animate-spin  " />
+                                : <div></div>
+                            }
 
-                        <img src={loginImg} alt="login" className=" md:w-1/2" />
-
+                            {error ?
+                                <div className="bg-red-50 text-center text-red-400 m-4 p-2">{error.message}</div>
+                                : <div></div>
+                            }
+                            <img src={loginImg} alt="login" className=" " />
+                        </div>
                     </div>
 
 

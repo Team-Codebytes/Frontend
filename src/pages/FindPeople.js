@@ -74,7 +74,7 @@ const FindPeople = () => {
                     // {...register("jobTitle")}
                     />
                 </div>
-                <div className="flex md:flex-row flex-col flex-wrap md:px-10 justify-center">
+                <div className="flex md:flex-row flex-col flex-wrap md:px-12 justify-center">
 
                     {/* {
                         allData.map((element) => {
