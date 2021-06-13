@@ -10,7 +10,7 @@ import { AvatarGenerator } from 'random-avatar-generator';
 const WorkerProfile = () => {
 
     const generator = new AvatarGenerator();
-    // let avatar = generator.generateRandomAvatar();
+    let avatar = generator.generateRandomAvatar();
 
     const { register, handleSubmit } = useForm();
 
@@ -50,7 +50,7 @@ const WorkerProfile = () => {
             id: user._id,
             name: user.FirstName + ' ' + user.LastName
         })
-    },[])
+    }, [])
 
 
 
@@ -81,23 +81,31 @@ const WorkerProfile = () => {
         <div className="bg-gray-50 ">
             <Navbar />
             <Link to="/find-people">
-                <button className="md:ml-40 mt-10 text-xl bg-gray-600 text-white mx-10 px-4 rounded-md">Back</button>
+                <button className="md:ml-40 mt-4 text-xl bg-gray-600 text-white mx-10 px-4 rounded-md">Back</button>
             </Link>
             {!loading ?
-                <div className="md:py-10 flex md:flex-row flex-col justify-center">
+                <div className=" flex md:flex-row flex-col justify-center">
 
                     <div className="md:w-1/2 my-4">
                         <div className="bg-white md:p-10 md:mx-10 p-2 py-6 rounded sticky top-28">
-                            <div className="flex items-center">
 
-                                <p className="ml-2 mr-auto capitalize text-2xl border-2 max-w-60 rounded-full px-4 py-2 text-white bg-indigo-400">{worker.Work_Category}</p>
+                            <div className="flex  items-center">
 
-                                <h1 className="ml-auto mr-2 text-3xl capitalize">{`${worker.FirstName} ${worker.LastName}`}</h1>
+
+                                <div className="flex flex-col">
+                                    <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${worker._id}/${worker.user_type}/Profile`}
+                                        className="w-28 h-28 mx-auto rounded-full"
+                                    />
+
+                                    <h1 className="ml-auto mr-2 text-3xl capitalize">{`${worker.FirstName} ${worker.LastName}`}</h1>
+                                </div>
+                                <div className="mr-2 ml-auto capitalize text-2xl border-2 max-w-60 rounded-full px-4 py-2 text-white bg-indigo-400">{worker.Work_Category}</div>
+
                             </div>
 
                             <div className="text-xl m-4 mt-8">
                                 <p className="text-2xl py-2">Services provided</p>
-                                <p className="py-2">{worker.Services }</p>
+                                <p className="py-2">{worker.Services}</p>
                                 <p className="py-2">{`Experience : ${worker.Experience}`}</p>
                                 <p className="py-2">{`Contact : ${worker.Phone_no}`}</p>
 
@@ -140,10 +148,10 @@ const WorkerProfile = () => {
                                 return (
                                     <div className=" p-4 m-2 rounded shadow-sm border-2 text-xl">
                                         <div className="flex flex-row">
-                                            <img src={generator.generateRandomAvatar()} alt="avatar" className="m-1 h-6 w-6 opacity-80" />
+                                            {/* <img src={generator.generateRandomAvatar()} alt="avatar" className="m-1 h-6 w-6 opacity-80" /> */}
                                             <h1 className="font-medium text-base m-1">{review.Name}</h1>
                                         </div>
-                                        <p className=" px-8 ">{review.Text}</p>
+                                        <p className=" ">{review.Text}</p>
                                     </div>
                                 )
                             })}

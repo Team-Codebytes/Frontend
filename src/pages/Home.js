@@ -20,18 +20,24 @@ import workersImg from '../assets/workers.jpg'
 const Home = () => {
 
     const [loggedIn, setLoggedIn] = useState(false)
-    
+    const [userType, setUserType] = useState('')
+
+
     useEffect(() => {
 
         if (localStorage.getItem('user')) {
             setLoggedIn(true)
+            let user = JSON.parse(localStorage.getItem('user'))
+            // console.log(user._id)
+            setUserType(
+                user.user_type)
 
         } else {
             setLoggedIn(false)
         }
 
 
-    },[])
+    }, [])
 
     return (
         <div className="bg-gray-50 ">
@@ -49,29 +55,55 @@ const Home = () => {
                     loggedIn ?
 
                         <div className="flex flex-row flex-wrap justify-center md:py-2 py-6 md:px-20">
-                            <div className="mx-4 flex flex-col items-center">
-                                <img src={commentIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
-                                <Link to="/job-info-form">
 
-                                    <button className=" mx-auto bg-purple-400 hover:bg-purple-500 text-xl m-4 font-bold shadow rounded-md px-8 py-4 text-white">Post a job</button>
-                                </Link>
-                            </div>
 
-                            <div className="mx-4 flex flex-col items-center">
-                                <img src={searchIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
-                                <Link to="/search-jobs">
-                                    <button className="bg-pink-400 hover:bg-pink-500 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find a job</button>
-                                </Link>
-                            </div>
+                            {userType !== 'worker' ?
+                                <div className="flex flex-row flex-wrap justify-center md:py-2 py-6 md:px-20">
+                                    <div className="mx-4 flex flex-col items-center">
+                                        <img src={commentIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
+                                        <Link to="/job-info-form">
 
-                            <div className="mx-4  flex flex-col items-center">
-                                <img src={peopleIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
-                                <Link to="/find-people">
-                                    <button className="bg-gray-600 hover:bg-gray-700 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find workers</button>
-                                </Link>
-                            </div>
+                                            <button className=" mx-auto bg-purple-400 hover:bg-purple-500 text-xl m-4 font-bold shadow rounded-md px-8 py-4 text-white">Post a job</button>
+                                        </Link>
+                                    </div>
 
-                        </div> :
+                                    <div className="mx-4 flex flex-col items-center">
+                                        <img src={searchIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
+                                        <Link to="/search-jobs">
+                                            <button className="bg-pink-400 hover:bg-pink-500 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find a job</button>
+                                        </Link>
+                                    </div>
+
+
+                                    <div className="mx-4  flex flex-col items-center">
+                                        <img src={peopleIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
+                                        <Link to="/find-people">
+                                            <button className="bg-gray-600 hover:bg-gray-700 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find workers</button>
+                                        </Link>
+                                    </div>
+                                </div>
+                                :
+                                 <div className="flex flex-row flex-wrap justify-center md:py-2 py-6 md:px-20">
+           
+
+                                    <div className="mx-4 flex flex-col items-center">
+                                        <img src={searchIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
+                                        <Link to="/search-jobs">
+                                            <button className="bg-pink-400 hover:bg-pink-500 text-xl m-4 rounded-md font-bold shadow px-8 py-4 text-white">Find a job</button>
+                                        </Link>
+                                    </div>
+
+
+                                    
+                                </div>
+                            }
+
+
+
+
+
+                        </div>
+                        :
                         <div></div>
 
                 }
@@ -126,15 +158,15 @@ const Home = () => {
                     {!loggedIn ?
                         <Link to="/choose-user-type">
 
-                        <div className="w-full flex items-center mx-auto py-10 bg-gray-50">
-                            <button className="focus:outline-none md:w-80 mx-auto bg-purple-400 hover:bg-green-400 md:text-3xl  text-xl m-4 font-bold shadow rounded-full px-8 py-4 text-white">Register Now</button>
-                        </div>
+                            <div className="w-full flex items-center mx-auto py-10 bg-gray-50">
+                                <button className="focus:outline-none md:w-80 mx-auto bg-purple-400 hover:bg-green-400 md:text-3xl  text-xl m-4 font-bold shadow rounded-full px-8 py-4 text-white">Register Now</button>
+                            </div>
                         </Link>
                         :
                         <div></div>
-                        
-}
-                    
+
+                    }
+
 
 
 

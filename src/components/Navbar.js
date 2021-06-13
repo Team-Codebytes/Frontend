@@ -9,6 +9,7 @@ import { AvatarGenerator } from 'random-avatar-generator';
 const Navbar = () => {
 
     const generator = new AvatarGenerator();
+    let avatar = generator.generateRandomAvatar();
 
 
     const [currentUser, setCurrentUser] = useState('')
@@ -30,7 +31,9 @@ const Navbar = () => {
             // console.log(user._id)
             setCurrentUser({
                 id: user._id,
-                name: user.FirstName || user.CompanyName
+                name: user.FirstName || user.CompanyName,
+                userType: user.user_type,
+
 
             })
 
@@ -52,7 +55,7 @@ const Navbar = () => {
                                     <h1 className="text-xl curser-pointer capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
 
 
-                                    <img src={generator.generateRandomAvatar()} alt="user" className="curser-pointer mr-1 ml-auto w-8 opacity-80 " />
+                                    <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}/${currentUser.userType}/Profile`} alt="user" className="curser-pointer m-1 ml-auto w-8 h-8 rounded-full opacity-80 " />
                                 </summary>
 
                                 <div className="text-xl pt-2 flex flex-col pb-2">
