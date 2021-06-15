@@ -67,25 +67,28 @@ const SearchJobs = () => {
 
       <div className="flex flex-row flex-wrap  justify-center items-center mx-auto">
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('')}>All</button>
+        <button
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('helper')}>Helper</button>
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('labor')}>Labor</button>
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('driver')}>Driver</button>
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('household')}>Household</button>
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('management')}>Management</button>
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('security')}>Security</button>
         <button
-          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          className="m-2 focus:bg-pink-400 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
           onClick={() => setSearchTerm('Others')}>Others</button>
 
 
