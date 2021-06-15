@@ -13,6 +13,8 @@ const EnterpriseRegister = () => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
 
 
     useEffect(() => {
@@ -24,12 +26,21 @@ const EnterpriseRegister = () => {
     async function createEnterpriseUser(user) {
         setLoading(true)
 
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/create', user)
+        try {
 
-        localStorage.setItem('user', JSON.stringify(result))
-        setLoading(false)
+            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/create', user)
+            if (result.message) {
+                throw new Error(result.message)
+            }
+            localStorage.setItem('user', JSON.stringify(result))
+            setLoading(false)
 
-        history.push('/')
+            history.push('/')
+        } catch (error) {
+            setLoading(false)
+            setError(error)
+            console.log(error)
+        }
     }
 
     const onSubmit = (data) => {
@@ -63,7 +74,10 @@ const EnterpriseRegister = () => {
 
                 <div className="mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                     <h1 className="text-2xl font-semibold text-center mb-8">Register as an Enterprise</h1>
-
+                    {error ?
+                        <div className="bg-red-50 text-center text-red-400 m-4 p-2">{error.message}</div>
+                        : <div></div>
+                    }
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="flex md:flex-row flex-col justify-center">
@@ -152,7 +166,7 @@ const EnterpriseRegister = () => {
                                         type="submit"
                                         className="flex font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Register
 
-                                         {loading ?
+                                        {loading ?
                                             <img src={loader} alt="loading..." className=" text-center w-8 mx-4 opacity-70 animate-spin  " />
                                             : <div></div>
                                         }

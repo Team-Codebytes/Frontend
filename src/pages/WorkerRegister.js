@@ -1,4 +1,4 @@
-import React, { useEffect , useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import $ from 'jquery'
@@ -13,6 +13,8 @@ const WorkerRegister = () => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
 
 
     useEffect(() => {
@@ -24,14 +26,22 @@ const WorkerRegister = () => {
     async function createWorkerUser(user) {
         setLoading(true)
 
+        try {
+            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
 
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
+            if (result.message) {
+                throw new Error(result.message)
+            }
+            localStorage.setItem('user', JSON.stringify(result))
+            setLoading(false)
 
-        localStorage.setItem('user', JSON.stringify(result))
-        setLoading(false)
 
-
-        history.push('/')
+            history.push('/')
+        } catch (error) {
+            setLoading(false)
+            setError(error)
+            console.log(error)
+        }
 
     }
 
@@ -69,7 +79,10 @@ const WorkerRegister = () => {
 
                 <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
                     <h1 className="text-2xl font-semibold text-center mb-8">Register as a Worker</h1>
-
+                    {error ?
+                        <div className="bg-red-50 text-center text-red-400 m-4 p-2">{error.message}</div>
+                        : <div></div>
+                    }
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="flex md:flex-row flex-col justify-center">
 
@@ -199,7 +212,7 @@ const WorkerRegister = () => {
                                     <button
                                         type="submit"
                                         className="flex font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Register
-                                         {loading ?
+                                        {loading ?
                                             <img src={loader} alt="loading..." className=" text-center w-8 mx-4 opacity-70 animate-spin  " />
                                             : <div></div>
                                         }

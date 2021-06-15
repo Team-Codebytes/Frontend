@@ -32,7 +32,7 @@ const UserProfile = () => {
             let user = JSON.parse(localStorage.getItem('user'))
             // console.log(user._id)
             setCurrentUser({
-                id:user._id,
+                id: user._id,
                 firstName: user.FirstName || user.CompanyName,
                 lastName: user.LastName || ' ',
                 email: user.Email_id,
@@ -90,7 +90,7 @@ const UserProfile = () => {
         form.append("image_cat", "Profile");
         console.log(form)
 
-        $.ajax({
+        await $.ajax({
             type: "POST",
             url: `https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}`,
             data: form,
@@ -98,14 +98,17 @@ const UserProfile = () => {
             contentType: false,
 
         })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                window.location.reload()
+
+            })
     }
 
     const onSubmit = (data) => {
 
         console.log(data);
         updateProfile(data);
-        window.location.reload()
 
 
     };
