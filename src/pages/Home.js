@@ -13,10 +13,6 @@ import banner from '../assets/banner.jpg'
 import workersImg from '../assets/workers.jpg'
 
 
-
-
-
-
 const Home = () => {
 
     const [loggedIn, setLoggedIn] = useState(false)
@@ -158,7 +154,7 @@ const Home = () => {
                     {!loggedIn ?
                         <Link to="/choose-user-type">
 
-                            <div className="w-full flex items-center mx-auto py-10 bg-gray-50">
+                            <div className="w-full border-b-4 flex items-center mx-auto py-10 bg-gray-50">
                                 <button className="focus:outline-none md:w-80 mx-auto bg-purple-400 hover:bg-green-400 md:text-3xl  text-xl m-4 font-bold shadow rounded-full px-8 py-4 text-white">Register Now</button>
                             </div>
                         </Link>
@@ -169,7 +165,21 @@ const Home = () => {
 
 
 
+                    <div className=" p-10 flex md:flex-row flex-col">
+                        <div className="md:w-8/12">
+                        <h1 className="text-2xl font-semibold mb-2">About Us</h1>
+                            <p className="text-xl">Built by <span className="text-indigo-400 font-bold">Team Codebytes</span>, Final year students of Computer Engineering, Sinhgad Institute of Technology, Lonavala.</p>
+                        </div>
+                        
+                        <div className="md:mt-0 mt-4 text-md">
+                            <h1 className="font-bold text-xl">Team</h1>
+                            <p>Vishwajeet Gade</p>
+                            <p>Rutik Wankhade</p>
+                            <p>Tushar Epatil</p>
+                            <p>Rohit jadhav</p>
 
+                        </div>
+</div>
 
                 </div>
             </div>
