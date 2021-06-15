@@ -130,7 +130,7 @@ const UserProfile = () => {
                         alt="edit"
                         className="ml-auto mr-2 bg-gray-50 p-2 rounded-full hover:bg-green-50 cursor-pointer" />
                     <div className="mt-10">
-                        <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}/${currentUser.userType}/Profile`} alt="avatar" className="mx-auto w-32 m-4 opacity-80" />
+                        <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}/${currentUser.userType}/Profile`} alt="avatar" className="mx-auto w-32 h-32 m-4 opacity-80 rounded-full" />
 
                         {showEdit ?
 

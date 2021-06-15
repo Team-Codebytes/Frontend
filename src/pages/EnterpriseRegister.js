@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
+import Bounce from 'react-reveal/Bounce';
 
 import Navbar from '../components/Navbar'
 import loader from '../assets/loader.svg'
@@ -70,6 +71,7 @@ const EnterpriseRegister = () => {
             <Navbar />
 
             <div className="md:py-10 ">
+                <Bounce right>
 
 
                 <div className="mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
@@ -179,7 +181,8 @@ const EnterpriseRegister = () => {
                         </div>
 
                     </form>
-                </div>
+                    </div>
+                    </Bounce>
             </div>
 
         </div>

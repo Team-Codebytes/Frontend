@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
+import Bounce from 'react-reveal/Bounce';
 
 
 import Navbar from '../components/Navbar'
@@ -76,7 +77,7 @@ const JobInfoForm = () => {
             <Navbar />
             <div className=" ">
                 <div className=" bg-gray-50 rounded-md  shadow flex md:flex-row-reverse flex-col-reverse justify-center">
-
+<Bounce bottom>
                     <div className="bg-white border-2 md:p-12 p-6 md:w-1/2 mt-10">
 
                         <h1 className="text-2xl font-semibold text-center mb-8">Post a new job</h1>
@@ -185,7 +186,9 @@ const JobInfoForm = () => {
                         </form>
 
 
-                    </div>
+                        </div>
+                        </Bounce>
+
 
                     <div className=" flex flex-col justify-center text-left md:w-96 md:mx-20 mx-10 mt-10">
                         <h1 className="text-3xl font-bold text-indigo-400">Post the job based on your requirements</h1>
@@ -194,7 +197,6 @@ const JobInfoForm = () => {
                         <img src={banner} alt="postjob" className="rounded-full md:w-80 md:h-80 w-40 h-40 m-10 " />
 
                     </div>
-
 
                 </div>
 

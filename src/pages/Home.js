@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom';
+import Fade from 'react-reveal/Fade';
+
 
 import peopleImg1 from '../assets/people1.jpg'
 import peopleImg2 from '../assets/people2.jpg'
@@ -41,9 +43,11 @@ const Home = () => {
 
             <div className="pt-28 flex flex-col-reverse justify-center">
                 <div className="pt-4 px-2">
-                    <h1 className=" text-center text-3xl md:text-5xl py-2 text-gray-700 font-bold">Find people for your work.</h1>
-                    <h1 className="   text-center text-3xl md:text-5xl py-2 text-gray-700 font-bold">find work for you.</h1>
-                    <h1 className=" py-4 text-center md:text-xl font-semibold italic ">A centralized platform for the unorganized sector</h1>
+                    <Fade bottom>
+                        <h1 className=" text-center text-3xl md:text-5xl py-2 text-gray-700 font-bold">Find people for your work.</h1>
+                        <h1 className="   text-center text-3xl md:text-5xl py-2 text-gray-700 font-bold">find work for you.</h1>
+                        <h1 className=" py-4 text-center md:text-xl font-semibold italic ">A centralized platform for the unorganized sector</h1>
+                    </Fade>
                 </div>
 
                 {
@@ -79,8 +83,8 @@ const Home = () => {
                                     </div>
                                 </div>
                                 :
-                                 <div className="flex flex-row flex-wrap justify-center md:py-2 py-6 md:px-20">
-           
+                                <div className="flex flex-row flex-wrap justify-center md:py-2 py-6 md:px-20">
+
 
                                     <div className="mx-4 flex flex-col items-center">
                                         <img src={searchIcon} alt="illustration" className="w-24 h-auto bg-white rounded-full p-4 shadow mx-auto" />
@@ -90,7 +94,7 @@ const Home = () => {
                                     </div>
 
 
-                                    
+
                                 </div>
                             }
 
@@ -114,7 +118,7 @@ const Home = () => {
 
             <div className="bg-purple-300 md:px-20 pt-10">
 
-                <div className="w-8/12 px-12 mx-auto  md:rounded-full rounded-md mb-10 text-white text-center py-10 bg-gray-600">
+                <div className="w-8/12 px-12 mx-auto md:rounded-full  rounded-md mb-10 text-white text-center py-10 bg-gray-600">
                     <h1 className="md:text-3xl font-semibold ">According to the report of Economic Survey released in 2019, the unorganized sector accounts for 93% of the total workforce of the country.</h1>
 
                 </div>
@@ -130,6 +134,7 @@ const Home = () => {
                         </div>
 
                     </div>
+
 
 
                     <div className="md:w-8/12 mx-auto flex md:flex-row-reverse flex-col justify-center items-center py-10">
@@ -154,7 +159,7 @@ const Home = () => {
                     {!loggedIn ?
                         <Link to="/choose-user-type">
 
-                            <div className="w-full border-b-4 flex items-center mx-auto py-10 bg-gray-50">
+                            <div className="w-full flex items-center mx-auto py-10 bg-gray-50">
                                 <button className="focus:outline-none md:w-80 mx-auto bg-purple-400 hover:bg-green-400 md:text-3xl  text-xl m-4 font-bold shadow rounded-full px-8 py-4 text-white">Register Now</button>
                             </div>
                         </Link>
@@ -165,12 +170,12 @@ const Home = () => {
 
 
 
-                    <div className=" p-10 flex md:flex-row flex-col">
+                    <div className=" p-10 flex md:flex-row flex-col bg-gray-700 text-white rounded">
                         <div className="md:w-8/12">
-                        <h1 className="text-2xl font-semibold mb-2">About Us</h1>
-                            <p className="text-xl">Built by <span className="text-indigo-400 font-bold">Team Codebytes</span>, Final year students of Computer Engineering, Sinhgad Institute of Technology, Lonavala.</p>
+                            <h1 className="text-2xl font-semibold mb-2">About Us</h1>
+                            <p className="text-xl">Built by <span className="text-green-300 font-bold">Team Codebytes</span>, Final year students of Computer Engineering, Sinhgad Institute of Technology, Lonavala.</p>
                         </div>
-                        
+
                         <div className="md:mt-0 mt-4 text-md">
                             <h1 className="font-bold text-xl">Team</h1>
                             <p>Vishwajeet Gade</p>
@@ -179,9 +184,10 @@ const Home = () => {
                             <p>Rohit jadhav</p>
 
                         </div>
-</div>
+                    </div>
 
                 </div>
+
             </div>
 
 

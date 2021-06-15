@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import $ from 'jquery'
+import Bounce from 'react-reveal/Bounce';
 
 import Navbar from '../components/Navbar'
 import loader from '../assets/loader.svg'
@@ -76,156 +77,157 @@ const WorkerRegister = () => {
         <div className="bg-yellow-200 ">
             <Navbar />
             <div className="md:py-10">
+                <Bounce right>
 
-                <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
-                    <h1 className="text-2xl font-semibold text-center mb-8">Register as a Worker</h1>
-                    {error ?
-                        <div className="bg-red-50 text-center text-red-400 m-4 p-2">{error.message}</div>
-                        : <div></div>
-                    }
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="flex md:flex-row flex-col justify-center">
+                    <div className=" mx-auto bg-white rounded-md md:p-12 p-6 shadow  md:w-2/3 ">
+                        <h1 className="text-2xl font-semibold text-center mb-8">Register as a Worker</h1>
+                        {error ?
+                            <div className="bg-red-50 text-center text-red-400 m-4 p-2">{error.message}</div>
+                            : <div></div>
+                        }
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="flex md:flex-row flex-col justify-center">
 
-                            <div className="md:w-1/2 m-6">
-                                <div className="flex">
+                                <div className="md:w-1/2 m-6">
+                                    <div className="flex">
+                                        <input
+                                            required
+                                            type="text"
+                                            placeholder="First name"
+                                            className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                            name="firstName"
+                                            {...register("firstName")}
+                                        />
+
+
+                                        <input
+                                            required
+                                            type="text"
+                                            placeholder="Last name"
+                                            className="ml-2 my-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                            name="lastName"
+                                            {...register("lastName")}
+                                        />
+                                    </div>
                                     <input
                                         required
-                                        type="text"
-                                        placeholder="First name"
+                                        type="email"
+                                        placeholder="Email"
                                         className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                        name="firstName"
-                                        {...register("firstName")}
+                                        name="email"
+                                        {...register("email")}
                                     />
 
+                                    <input
+                                        required
+                                        type="password"
+                                        placeholder="Password"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="password"
+                                        {...register("password")}
+                                    />
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="Phone number"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="phoneNo"
+                                        {...register("phoneNo")}
+                                    />
 
                                     <input
                                         required
                                         type="text"
-                                        placeholder="Last name"
-                                        className="ml-2 my-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                        name="lastName"
-                                        {...register("lastName")}
+                                        placeholder="Job Title"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="jobTitle"
+                                        {...register("jobTitle")}
+                                    />
+
+                                    <input
+                                        required
+                                        type="number"
+                                        placeholder="Experience in years"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="experience"
+                                        {...register("experience")}
+                                    />
+
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="Service provided"
+                                        className="m-2 p-2 h-20 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="services"
+                                        {...register("services")}
                                     />
                                 </div>
-                                <input
-                                    required
-                                    type="email"
-                                    placeholder="Email"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="email"
-                                    {...register("email")}
-                                />
-
-                                <input
-                                    required
-                                    type="password"
-                                    placeholder="Password"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="password"
-                                    {...register("password")}
-                                />
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="Phone number"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="phoneNo"
-                                    {...register("phoneNo")}
-                                />
-
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="Job Title"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="jobTitle"
-                                    {...register("jobTitle")}
-                                />
-
-                                <input
-                                    required
-                                    type="number"
-                                    placeholder="Experience in years"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="experience"
-                                    {...register("experience")}
-                                />
-
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="Service provided"
-                                    className="m-2 p-2 h-20 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="services"
-                                    {...register("services")}
-                                />
-                            </div>
 
 
-                            <div className="md:w-1/2 m-6">
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="Aadhar Number"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="aadharNo"
-                                    {...register("aadharNo")}
-                                />
+                                <div className="md:w-1/2 m-6">
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="Aadhar Number"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="aadharNo"
+                                        {...register("aadharNo")}
+                                    />
 
-                                <textarea
-                                    required
-                                    type="text"
-                                    placeholder="Address"
-                                    className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="address"
-                                    {...register("address")}
-                                />
+                                    <textarea
+                                        required
+                                        type="text"
+                                        placeholder="Address"
+                                        className=" h-28 m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="address"
+                                        {...register("address")}
+                                    />
 
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="City"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="city"
-                                    {...register("city")}
-                                />
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="City"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="city"
+                                        {...register("city")}
+                                    />
 
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="Pincode"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="pincode"
-                                    {...register("pincode")}
-                                />
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="Pincode"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="pincode"
+                                        {...register("pincode")}
+                                    />
 
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="State"
-                                    className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
-                                    name="state"
-                                    {...register("state")}
-                                />
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="State"
+                                        className="m-2 p-2 border-2 bg-gray-50 rounded w-full text-xl focus:outline-none focus:border-indigo-500"
+                                        name="state"
+                                        {...register("state")}
+                                    />
 
-                                <div className="w-60 md:ml-40 mt-4">
-                                    <button
-                                        type="submit"
-                                        className="flex font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Register
-                                        {loading ?
-                                            <img src={loader} alt="loading..." className=" text-center w-8 mx-4 opacity-70 animate-spin  " />
-                                            : <div></div>
-                                        }
-                                    </button>
+                                    <div className="w-60 md:ml-40 mt-4">
+                                        <button
+                                            type="submit"
+                                            className="flex font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Register
+                                            {loading ?
+                                                <img src={loader} alt="loading..." className=" text-center w-8 mx-4 opacity-70 animate-spin  " />
+                                                : <div></div>
+                                            }
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
                             </div>
-
-                        </div>
-                    </form>
-                </div>
-
+                        </form>
+                    </div>
+                </Bounce>
             </div>
         </div>
     );

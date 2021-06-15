@@ -6,6 +6,7 @@ import loader from '../assets/loader.svg'
 import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
+import Fade from 'react-reveal/Fade';
 
 
 // import { RadioGroup, RadioButton } from 'react-radio-buttons'
@@ -43,7 +44,7 @@ const Login = () => {
                 Password: data.password,
             }
 
-            let result = await $.post('http://ec2-54-144-229-145.compute-1.amazonaws.com:3000/API/commonuser/login', user)
+            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', user)
             if (result == null) {
                 throw new Error('Login failed! Credentials did not match. ')
             }
@@ -142,6 +143,7 @@ const Login = () => {
         <div className="bg-gray-50 ">
             <Navbar />
             <div className="md:py-10 ">
+                <Fade bottom>
                 <div className="md:w-8/12 bg-white p-20  shadow-md border-2  rounded-md m-auto">
                     <h1 className="text-3xl font-semibold text-gray-500 ">Welcome back !</h1>
 
@@ -216,7 +218,8 @@ const Login = () => {
                     </div>
 
 
-                </div>
+                    </div>
+                    </Fade>
             </div>
 
         </div>
