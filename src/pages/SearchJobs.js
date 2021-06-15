@@ -20,7 +20,7 @@ const SearchJobs = () => {
 
   const getAllJobs = () => {
 
-    $.get('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/')
+    $.get('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/postjob/')
       .then(jobsList => {
 
         console.log(jobsList)

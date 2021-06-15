@@ -26,7 +26,7 @@ const WorkerProfile = () => {
 
     useEffect(() => {
 
-        $.get(`https://unorganisedsectorbackbnd.herokuapp.com/API/workers/${workerId}`)
+        $.get(`http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/workers/${workerId}`)
             .then(workerDetails => {
 
                 console.log(workerDetails)
@@ -66,7 +66,7 @@ const WorkerProfile = () => {
             Text: data.review
         }
 
-        $.post(`https://unorganisedsectorbackbnd.herokuapp.com/API/workers/${workerId}/AddComment`, review)
+        $.post(`http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/workers/${workerId}/AddComment`, review)
             .then(window.location.reload()
             )
     }
@@ -93,7 +93,7 @@ const WorkerProfile = () => {
 
 
                                 <div className="flex flex-col">
-                                    <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${worker._id}/${worker.user_type}/Profile`}
+                                    <img onError={(ev) => ev.target.src = avatar} src={`http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/uploads/${worker._id}/${worker.user_type}/Profile`}
                                         className="w-28 h-28 mx-auto rounded-full" alt="profile"
                                     />
 
@@ -146,7 +146,7 @@ const WorkerProfile = () => {
 
                             {worker && worker.Comments.map(review => {
                                 return (
-                                    <div className=" p-4 m-2   border-2 border-gray-200 shadow-sm rounded text-xl">
+                                    <div className=" p-4 m-2 border-2 border-gray-200 shadow-sm rounded text-xl">
                                         <div className="flex flex-row">
                                             {/* <img src={generator.generateRandomAvatar()} alt="avatar" className="m-1 h-6 w-6 opacity-80" /> */}
                                             <h1 className="font-medium text-base m-1">{review.Name}</h1>

@@ -11,7 +11,7 @@ const Worker = (props) => {
     return (
         <div
             className=" p-4 bg-white m-4 shadow-md rounded-md flex flex-row ">
-            <img onError={(ev)=>  ev.target.src = avatar} src={ `https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${props.data._id}/${props.data.user_type}/Profile`} alt="avatar" className=" w-24 m-4 opacity-80" />
+            <img onError={(ev)=>  ev.target.src = avatar} src={ `http://ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/uploads/${props.data._id}/${props.data.user_type}/Profile`} alt="avatar" className=" w-24 m-4 opacity-80" />
 
             <div className="m-4">
                 <h1 className="capitalize text-2xl font-semibold ">{props.data.Work_Category}</h1>

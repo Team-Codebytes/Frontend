@@ -32,7 +32,7 @@ const App = () => {
         <Route exact path="/user-register" component={UserRegister} />
         <Route exact path="/enterprise-register" component={EnterpriseRegister} />
         <Route exact path="/worker-register" component={WorkerRegister} />
-                <Route exact path="/login" component={Login} />
+        <Route exact path="/login" component={Login} />
 
 
         <Route exact path="/search-jobs">

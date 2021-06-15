@@ -54,8 +54,7 @@ const Navbar = () => {
                                 <summary className="curser-pointer bg-white  relative flex border-gray-300 shadow-sm ">
                                     <h1 className="text-xl curser-pointer capitalize font-semibold m-1 p-1">{currentUser.name}</h1>
 
-
-                                    <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}/${currentUser.userType}/Profile`} alt="user" className="curser-pointer m-1 ml-auto w-8 h-8 rounded-full opacity-80 " />
+                                    <img onError={(ev) => ev.target.src = avatar} src={`http://ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/uploads/${currentUser.id}/${currentUser.userType}/Profile`} alt="user" className="curser-pointer m-1 ml-auto w-8 h-8 rounded-full opacity-80 " />
                                 </summary>
 
                                 <div className="text-xl pt-2 flex flex-col pb-2">

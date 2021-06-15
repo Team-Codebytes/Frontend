@@ -28,7 +28,7 @@ const WorkerRegister = () => {
         setLoading(true)
 
         try {
-            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/create', user)
+            let result = await $.post('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/workers/create', user)
 
             if (result.message) {
                 throw new Error(result.message)

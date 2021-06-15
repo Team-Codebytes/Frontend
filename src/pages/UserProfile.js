@@ -45,7 +45,7 @@ const UserProfile = () => {
 
     const getAllJobs = () => {
 
-        $.get('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/')
+        $.get('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/postjob/')
             .then(jobsList => {
 
                 console.log(jobsList)
@@ -63,9 +63,11 @@ const UserProfile = () => {
 
 
     const deletePost = (id) => {
+        let url=`https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/${id}/delete`
 
-        fetch(`https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/${id}/delete`, {
+        fetch(url, {
             method: 'DELETE',
+             credentials: 'same-origin'
         })
             .then(res => res.text()) // or res.json()
             .then(res => console.log(res))
@@ -80,8 +82,6 @@ const UserProfile = () => {
     }
 
 
-
-
     async function updateProfile(data) {
 
         var form = new FormData();
@@ -92,7 +92,7 @@ const UserProfile = () => {
 
         await $.ajax({
             type: "POST",
-            url: `https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${currentUser.id}`,
+            url: `http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/uploads/${currentUser.id}`,
             data: form,
             processData: false,
             contentType: false,
@@ -112,10 +112,6 @@ const UserProfile = () => {
 
 
     };
-
-
-
-
 
 
     return (

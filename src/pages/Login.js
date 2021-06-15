@@ -44,7 +44,7 @@ const Login = () => {
                 Password: data.password,
             }
 
-            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/commonuser/login', user)
+            let result = await $.post('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/commonuser/login', user)
             if (result == null) {
                 throw new Error('Login failed! Credentials did not match. ')
             }
@@ -71,7 +71,7 @@ const Login = () => {
                 Password: data.password,
             }
 
-            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/workers/login', user)
+            let result = await $.post('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/workers/login', user)
 
             if (result == null) {
                 throw new Error('Login failed! Credentials did not match. ')
@@ -100,7 +100,7 @@ const Login = () => {
                 Password: data.password,
             }
 
-            let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/enterpriceuser/login', user)
+            let result = await $.post('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/enterpriceuser/login', user)
             if (result == null) {
                 throw new Error('Login failed! Credentials did not match. ')
             }

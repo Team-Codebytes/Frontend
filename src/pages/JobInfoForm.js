@@ -59,7 +59,7 @@ const JobInfoForm = () => {
             }
         }
 
-        let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/create', jobDetails)
+        let result = await $.post('http://ubuntu@ec2-54-211-35-3.compute-1.amazonaws.com:3000/API/postjob/create', jobDetails)
         console.log(result)
        setLoading(false)
 
