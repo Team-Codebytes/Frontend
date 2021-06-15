@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar'
 import $ from 'jquery'
 import { useForm } from "react-hook-form";
@@ -21,7 +21,7 @@ const UserProfile = () => {
 
 
 
-    const { register, handleSubmit } = useForm();
+    const { handleSubmit } = useForm();
 
 
     useEffect(() => {

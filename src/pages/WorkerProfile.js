@@ -94,7 +94,7 @@ const WorkerProfile = () => {
 
                                 <div className="flex flex-col">
                                     <img onError={(ev) => ev.target.src = avatar} src={`https://unorganisedsectorbackbnd.herokuapp.com/API/uploads/${worker._id}/${worker.user_type}/Profile`}
-                                        className="w-28 h-28 mx-auto rounded-full"
+                                        className="w-28 h-28 mx-auto rounded-full" alt="profile"
                                     />
 
                                     <h1 className="ml-auto mr-2 text-3xl capitalize">{`${worker.FirstName} ${worker.LastName}`}</h1>

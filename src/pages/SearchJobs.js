@@ -11,7 +11,7 @@ const SearchJobs = () => {
   // const [searchCity, setSearchCity] = useState("");
   //   const [searchJob, setSearchJob] = useState("");
 
-    const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
 
 
@@ -52,7 +52,7 @@ const SearchJobs = () => {
           type="text"
           placeholder="Search job by city or job title"
           className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full md:text-2xl text-xl focus:outline-none focus:border-indigo-500"
-        
+
         />
 
         {/* <input
@@ -64,8 +64,34 @@ const SearchJobs = () => {
         
         /> */}
       </div>
+
+      <div className="flex flex-row flex-wrap  justify-center items-center mx-auto">
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('helper')}>Helper</button>
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('labor')}>Labor</button>
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('driver')}>Driver</button>
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('household')}>Household</button>
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('management')}>Management</button>
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('security')}>Security</button>
+        <button
+          className="m-2 hover:bg-indigo-400 bg-indigo-300 text-white  rounded-full p-2 px-6 focus:outline-none text-xl"
+          onClick={() => setSearchTerm('Others')}>Others</button>
+
+
+      </div>
       <div className="py-10 md:px-20 flex flex-col justify-center items-center">
-       
+
 
         {
           allJobs
@@ -76,12 +102,14 @@ const SearchJobs = () => {
                 return val;
               } else if (val.City.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val;
+              } else if (val.Work_Category.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return val;
               }
             })
             .map((job) => {
               return <JobPost details={job} />
             })
-  
+
         }
 
       </div>

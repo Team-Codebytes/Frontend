@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom'
 import Bounce from 'react-reveal/Bounce';
+import loader from '../assets/loader.svg'
 
 
 import Navbar from '../components/Navbar'
@@ -15,6 +16,8 @@ const JobInfoForm = () => {
 
 
     const [currentUser, setCurrentUser] = useState('')
+        const [loading, setLoading] = useState(false)
+
 
     const [workCategory, setWorkCategory] = useState('')
     const [experienceLevel, setExperienceLevel] = useState('')
@@ -34,6 +37,8 @@ const JobInfoForm = () => {
 
 
     async function postJob(data) {
+                setLoading(true)
+
 
         let jobDetails = {
 
@@ -56,6 +61,8 @@ const JobInfoForm = () => {
 
         let result = await $.post('https://unorganisedsectorbackbnd.herokuapp.com/API/postjob/create', jobDetails)
         console.log(result)
+       setLoading(false)
+
         // localStorage.setItem('user', JSON.stringify(result))
         history.push('/post-success')
 
@@ -105,7 +112,7 @@ const JobInfoForm = () => {
                                 >
                                     <DropdownList
                                         defaultValue="Work Category"
-                                        data={["Helper", "Labour", "Driver", "Carpenter", "Cook", "Electrician"]}
+                                        data={["Helper", "Labour", "Driver", "Carpenter", "Cook", "Electrician","Management", "Assistant", "Household","Mechanic","Security","Other"]}
                                         onChange={value => setWorkCategory(value)}
 
                                     />
@@ -177,7 +184,12 @@ const JobInfoForm = () => {
                             <div className="w-20 flex mx-auto mt-2">
                                 <button
                                     type="submit"
-                                    className=" mr-2 font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Submit</button>
+                                        className="flex mr-2 font-semibold bg-indigo-400 text-white text-xl px-4 py-2 rounded">Submit
+                                     {loading ?
+                                                <img src={loader} alt="loading..." className=" text-center w-8 mx-4 opacity-70 animate-spin  " />
+                                                : <div></div>
+                                            }
+                                    </button>
 
                             </div>
 

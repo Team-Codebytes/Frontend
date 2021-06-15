@@ -3,7 +3,7 @@ import callIcon from '../assets/call.svg'
 
 const JobPost = ({ details }) => {
     return (
-        <div className="bg-white  p-12 rounded m-2 md:w-8/12 shadow-sm">
+        <div className="bg-white p-12 rounded m-2 mx-2 md:w-8/12 w-full shadow-sm">
             <div>
                 <div className="flex flex-row">
                     <h2 className="capitalize text-indigo-400 text-2xl font-semibold">{details.Job_Title}</h2>
