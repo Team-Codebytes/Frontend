@@ -68,7 +68,7 @@ const FindPeople = () => {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         type="text"
-                        placeholder="What type of worker you want?"
+                        placeholder="What type of worker do you need?"
                         className="m-2 p-4 px-8 border-2 bg-white rounded-full w-full md:text-2xl text-xl focus:outline-none focus:border-indigo-500"
                     // name="jobTitle"
                     // {...register("jobTitle")}
@@ -87,7 +87,7 @@ const FindPeople = () => {
                         })
                     } */}
 
-                    <div className="flex md:flex-row flex-col flex-wrap md:px-10 justify-center">
+                    <div className="flex md:flex-row flex-col flex-wrap px-10 justify-center">
                         {
 
                             allData
@@ -101,7 +101,7 @@ const FindPeople = () => {
                                 .map((element) => {
                                     return (
                                         <Link to={`/workers/${element._id}`}>
-                                            <Worker data={element} key={element._id} />
+                                            <Worker data={element} key={element._id} className=""/>
                                         </Link>
 
                                     )

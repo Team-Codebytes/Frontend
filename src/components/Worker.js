@@ -17,7 +17,7 @@ const Worker = (props) => {
                 <h1 className="capitalize text-2xl font-semibold ">{props.data.Work_Category}</h1>
                 <h1 className="text-md font-semibold ">{`${props.data.FirstName} ${props.data.LastName}`}</h1>
                 <p>{`Experience : ${props.data.Experience}`}</p>
-                <p>City: pune</p>
+                <p>{`City: ${props.data.City} `}</p>
                 {/* <p className=" bg-green-50">{`Contact : ${props.data.Phone_no}`}</p> */}
             </div>
 

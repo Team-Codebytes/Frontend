@@ -99,7 +99,7 @@ const WorkerProfile = () => {
 
                                     <h1 className="ml-auto mr-2 text-3xl capitalize">{`${worker.FirstName} ${worker.LastName}`}</h1>
                                 </div>
-                                <div className="mr-2 ml-auto capitalize text-2xl border-2 max-w-60 rounded-full px-4 py-2 text-white bg-indigo-400">{worker.Work_Category}</div>
+                                <div className="mr-2 ml-auto outline-none capitalize text-2xl border-2 max-w-60 rounded-full px-4 py-2 text-white bg-indigo-400">{worker.Work_Category}</div>
 
                             </div>
 
@@ -146,7 +146,7 @@ const WorkerProfile = () => {
 
                             {worker && worker.Comments.map(review => {
                                 return (
-                                    <div className=" p-4 m-2 rounded shadow-sm border-2 text-xl">
+                                    <div className=" p-4 m-2   border-2 border-gray-200 shadow-sm rounded text-xl">
                                         <div className="flex flex-row">
                                             {/* <img src={generator.generateRandomAvatar()} alt="avatar" className="m-1 h-6 w-6 opacity-80" /> */}
                                             <h1 className="font-medium text-base m-1">{review.Name}</h1>
